@@ -24,8 +24,6 @@
     enable = true;
     userName = "igorai";
     userEmail = "igor.iwanicki@protonmail.com";
-    package = pkgs.gitFull;
-    config.credential.helper = "libsecret";
   };
 
   # Enable home-manager
@@ -34,5 +32,6 @@
   # Reload system units when changing config
   systemd.user.startServices = "sd-switch";
 
-  system.stateVersion = "24.11";
+  home.stateVersion = "24.11";
 }
+

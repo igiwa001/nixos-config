@@ -13,7 +13,7 @@
   nix = {
     channel.enable = false;
     settings = {
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
     gc = {
@@ -24,6 +24,10 @@
   };
   nixpkgs.config.allowUnfree = true;
   documentation.nixos.enable = false;
+
+  # Bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
   networking = {
