@@ -26,8 +26,14 @@
   documentation.nixos.enable = false;
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 3;
+      editor = false;
+    };
+  };
 
   # Enable networking
   networking = {
