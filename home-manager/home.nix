@@ -6,6 +6,8 @@
   ...
 }: {
   imports = [
+    ./shell.nix
+    ./git.nix
     ./hyprland.nix
     ./kitty.nix
   ];
@@ -20,15 +22,6 @@
   home = {
     username = "igorai";
     homeDirectory = /home/igorai;
-  };
-
-  # Git configuration
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-    userName = "Igor Iwanicki";
-    userEmail = "igor.iwanicki@protonmail.com";
-    extraConfig.credential.helper = "libsecret";
   };
 
   # Enable home-manager
