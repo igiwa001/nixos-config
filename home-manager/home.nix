@@ -26,7 +26,7 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    userName = "igorai";
+    userName = "Igor Iwanicki";
     userEmail = "igor.iwanicki@protonmail.com";
     extraConfig.credential.helper = "libsecret";
   };
