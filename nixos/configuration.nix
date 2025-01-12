@@ -76,6 +76,12 @@
     config.common.default = "*";
   };
 
+  # Gnome display manager
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+
   # Ozone wayland support
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
