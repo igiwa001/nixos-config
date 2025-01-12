@@ -82,6 +82,9 @@
     wayland = true;
   };
 
+  # Hyprland
+  programs.hyprland.enable = true;
+
   # Ozone wayland support
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -90,6 +93,7 @@
     vim
     wget
     zip
+    firefox
   ];
 
   system.stateVersion = "24.11";

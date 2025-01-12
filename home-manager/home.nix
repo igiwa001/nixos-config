@@ -5,7 +5,10 @@
   pkgs,
   ...
 }: {
-  imports = [];
+  imports = [
+    ./hyprland.nix
+    ./kitty.nix
+  ];
 
   # Nixpkgs config
   nixpkgs.config = {
@@ -34,4 +37,3 @@
 
   home.stateVersion = "24.11";
 }
-
