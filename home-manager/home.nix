@@ -8,6 +8,7 @@
   imports = [
     ./shell.nix
     ./git.nix
+    ./vim.nix
     ./hyprland.nix
     ./kitty.nix
   ];
