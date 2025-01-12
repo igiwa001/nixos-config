@@ -64,6 +64,18 @@
     };
   };
 
+  # XDG portals
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
+  };
+
   # Ozone wayland support
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
