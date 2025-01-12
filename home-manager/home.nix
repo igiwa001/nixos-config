@@ -25,8 +25,10 @@
   # Git configuration
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userName = "igorai";
     userEmail = "igor.iwanicki@protonmail.com";
+    extraConfig.credential.helper = "libsecret";
   };
 
   # Enable home-manager
