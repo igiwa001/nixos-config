@@ -9,7 +9,7 @@
     ./modules/shell.nix
     ./modules/git.nix
     ./modules/vim.nix
-    ./modules/neovim.nix
+    ./modules/neovim/neovim.nix
     ./modules/hyprland.nix
     ./modules/kitty.nix
   ];
