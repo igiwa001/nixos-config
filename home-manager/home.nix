@@ -9,6 +9,7 @@
     ./shell.nix
     ./git.nix
     ./vim.nix
+    ./neovim.nix
     ./hyprland.nix
     ./kitty.nix
   ];
