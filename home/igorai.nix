@@ -6,12 +6,12 @@
   ...
 }: {
   imports = [
-    ./shell.nix
-    ./git.nix
-    ./vim.nix
-    ./neovim.nix
-    ./hyprland.nix
-    ./kitty.nix
+    ./modules/shell.nix
+    ./modules/git.nix
+    ./modules/vim.nix
+    ./modules/neovim.nix
+    ./modules/hyprland.nix
+    ./modules/kitty.nix
   ];
 
   # Nixpkgs config

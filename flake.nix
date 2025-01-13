@@ -30,7 +30,7 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/configuration.nix];
+        modules = [./hosts/nixos/configuration.nix];
       };
     };
     # Home-manager configuration
@@ -38,7 +38,7 @@
       igorai = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/home.nix];
+        modules = [./home/igorai.nix];
       };
     };
   };
