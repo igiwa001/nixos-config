@@ -9,6 +9,17 @@
     enable = true;
     xwayland.enable = true;
     settings = {
+      general = {
+        gaps_out = 10;
+        allow_tearing = true;
+        "col.active_border" = "rgb(04c2de)";
+      };
+
+      decoration = {
+        rounding = 10;
+        inactive_opacity = 0.95;
+      };
+
       input = {
         kb_layout = "no";
         repeat_delay = 200;
@@ -19,6 +30,15 @@
           drag_lock = true;
         };
       };
+
+      misc = {
+        disable_splash_rendering = true;
+        vrr = true;
+      };
+
+      animation = [
+        "global, 1, 3, default"
+      ];
 
       bindm = [
         "SUPER, mouse:272, movewindow"
