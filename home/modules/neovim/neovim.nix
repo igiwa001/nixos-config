@@ -10,6 +10,8 @@
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
     ./plugins/lualine.nix
+    ./plugins/persistence.nix
+    ./plugins/alpha.nix
   ];
 
   programs.nixvim = {
