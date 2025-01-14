@@ -16,6 +16,7 @@
     ./plugins/neo-tree.nix
     ./plugins/indent-blankline.nix
     ./plugins/comment.nix
+    ./plugins/nvim-autopairs.nix
   ];
 
   programs.nixvim = {
