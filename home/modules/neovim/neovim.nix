@@ -12,6 +12,10 @@
     ./plugins/lualine.nix
     ./plugins/persistence.nix
     ./plugins/alpha.nix
+    ./plugins/noice.nix
+    ./plugins/neo-tree.nix
+    ./plugins/indent-blankline.nix
+    ./plugins/comment.nix
   ];
 
   programs.nixvim = {
