@@ -52,6 +52,7 @@
   # Set locale
   time.timeZone = "Europe/Oslo";
   console.keyMap = "no";
+  services.xserver.xkb.layout = "no";
 
   # Pipewire
   security.rtkit.enable = true;
