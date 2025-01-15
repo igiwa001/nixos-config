@@ -10,7 +10,7 @@
     ./modules/git.nix
     ./modules/vim.nix
     ./modules/neovim/neovim.nix
-    ./modules/hyprland.nix
+    ./modules/hyprland/hyprland.nix
     ./modules/kitty.nix
   ];
 
