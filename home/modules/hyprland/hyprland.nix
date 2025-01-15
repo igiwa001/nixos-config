@@ -9,6 +9,7 @@
     ./waybar.nix
     ./rofi.nix
     ./lockscreen.nix
+    ./mako.nix
   ];
 
   wayland.windowManager.hyprland = {
