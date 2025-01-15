@@ -8,6 +8,7 @@
   imports = [
     ./waybar.nix
     ./rofi.nix
+    ./lockscreen.nix
   ];
 
   wayland.windowManager.hyprland = {
