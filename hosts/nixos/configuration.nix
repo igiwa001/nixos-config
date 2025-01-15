@@ -94,7 +94,6 @@
 
   # Common packages and binaries
   environment.systemPackages = with pkgs; [
-    vim
     wget
     zip
     firefox
