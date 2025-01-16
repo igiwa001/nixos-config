@@ -17,6 +17,7 @@
     ./plugins/indent-blankline.nix
     ./plugins/comment.nix
     ./plugins/nvim-autopairs.nix
+    ./plugins/conform.nix
   ];
 
   programs.nixvim = {
