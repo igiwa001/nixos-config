@@ -18,6 +18,8 @@
     ./plugins/comment.nix
     ./plugins/nvim-autopairs.nix
     ./plugins/conform.nix
+    ./plugins/cmp.nix
+    ./plugins/lsp.nix
   ];
 
   programs.nixvim = {
