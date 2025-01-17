@@ -9,7 +9,8 @@
   programs.eza.enable = true;
   programs.zoxide = {
     enable = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
+  programs.htop.enable = true;
+  home.packages = [pkgs.screen];
 }
-
