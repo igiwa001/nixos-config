@@ -10,6 +10,10 @@
       enable = true;
       settings.formatters_by_ft = {
         nix = ["alejandra"];
+        javascript = ["prettierd"];
+        typescript = ["prettierd"];
+        javascriptreact = ["prettierd"];
+        typescriptreact = ["prettierd"];
       };
     };
     keymaps = [
@@ -25,5 +29,8 @@
       }
     ];
   };
-  home.packages = [pkgs.alejandra];
+  home.packages = [
+    pkgs.alejandra
+    pkgs.prettierd
+  ];
 }
