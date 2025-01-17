@@ -19,7 +19,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>f";
+        key = "<S-f>";
         action = "<CMD>lua require('conform').format()<CR>";
         options = {
           noremap = true;

@@ -34,6 +34,19 @@
       relativenumber = true;
     };
 
-    colorschemes.tokyonight.enable = true;
+    colorscheme = "duskfox";
+    colorschemes.nightfox = {
+      enable = true;
+      settings = {
+        options = {
+          terminal_colors = true;
+          transparent = true;
+          styles = {
+            comments = "italic";
+            functions = "bold";
+          };
+        };
+      };
+    };
   };
 }
