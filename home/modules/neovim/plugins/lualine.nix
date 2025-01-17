@@ -6,15 +6,15 @@
   ...
 }: {
   programs.nixvim.plugins = {
-      lualine = {
-        enable = true;
-        settings.options = {
-          globalstatus = true;
-          section_separators = {
-            left = "";
-            right = "";
-          };
+    lualine = {
+      enable = true;
+      settings.options = {
+        globalstatus = true;
+        section_separators = {
+          left = "";
+          right = "";
         };
       };
+    };
   };
 }

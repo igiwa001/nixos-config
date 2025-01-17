@@ -4,15 +4,20 @@
   config,
   pkgs,
   ...
-}:
-let
-  makeButton = {command, desc, shortcut}: {
+}: let
+  makeButton = {
+    command,
+    desc,
+    shortcut,
+  }: {
     type = "button";
     val = desc;
     opts = {
       inherit shortcut;
       keymap = [
-        "n" shortcut command
+        "n"
+        shortcut
+        command
         {
           noremap = true;
           silent = true;
@@ -25,8 +30,7 @@ let
       align_shortcut = "right";
     };
   };
-in
-{
+in {
   programs.nixvim.plugins.alpha = {
     enable = true;
     layout = [
@@ -40,7 +44,7 @@ in
           hl = "AlphaHeader";
           position = "center";
         };
-        val  = [
+        val = [
           "                                              "
           "      ████ ██████           █████      ██"
           "     ███████████             █████ "
@@ -63,27 +67,27 @@ in
           spacing = 1;
         };
         val = map makeButton [
-          { 
+          {
             desc = "󰈞  Find file";
             shortcut = "f";
             command = "<CMD>Telescope find_files<CR>";
           }
-          { 
+          {
             desc = "󰈬  Find text";
             shortcut = "g";
             command = "<CMD>Telescope live_grep<CR>";
           }
-          { 
+          {
             desc = "  Recent files";
             shortcut = "r";
             command = "<CMD>Telescope oldfiles<CR>";
           }
-          { 
+          {
             desc = "  Restore session";
             shortcut = "s";
             command = "<CMD>lua require('persistence').load()<CR>";
           }
-          { 
+          {
             desc = "󰅚  Quit";
             shortcut = "q";
             command = "<CMD>qa<CR>";

@@ -14,19 +14,19 @@
         position = "top";
         spacing = 4;
 
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "network" "battery" "tray" ];
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-center = ["clock"];
+        modules-right = ["network" "battery" "tray"];
 
         "hyprland/window" = {
-          max-length =  50;
-          separate-outputs =  true;
+          max-length = 50;
+          separate-outputs = true;
         };
-        "tray" =  {
+        "tray" = {
           spacing = 10;
         };
         "clock" = {
-          timezone =  "Europe/Oslo";
+          timezone = "Europe/Oslo";
           #format = "{%M %d %H:%M}";
         };
       };
