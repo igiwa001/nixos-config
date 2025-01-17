@@ -13,6 +13,7 @@
     ./modules/applications/kitty.nix
     ./modules/applications/firefox.nix
     ./modules/applications/slack.nix
+    ./modules/applications/discord.nix
   ];
 
   # Nixpkgs config
