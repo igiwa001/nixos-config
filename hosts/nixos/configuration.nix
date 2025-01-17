@@ -99,7 +99,6 @@
   environment.systemPackages = with pkgs; [
     wget
     zip
-    firefox
   ];
 
   system.stateVersion = "24.11";

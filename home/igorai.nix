@@ -10,7 +10,9 @@
     ./modules/git.nix
     ./modules/neovim/neovim.nix
     ./modules/hyprland/hyprland.nix
-    ./modules/kitty.nix
+    ./modules/applications/kitty.nix
+    ./modules/applications/firefox.nix
+    ./modules/applications/slack.nix
   ];
 
   # Nixpkgs config
