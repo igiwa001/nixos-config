@@ -7,6 +7,7 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./plugins/performance.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
     ./plugins/lualine.nix
