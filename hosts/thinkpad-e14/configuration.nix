@@ -14,6 +14,7 @@
     ../modules/locale.nix
     ../modules/user.nix
     ../modules/pipewire.nix
+    ../modules/keyring.nix
     ../modules/xdg-portal.nix
     ../modules/gdm.nix
     ../modules/hyprland.nix
