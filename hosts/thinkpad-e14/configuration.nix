@@ -19,6 +19,6 @@
     ../modules/hyprland.nix
   ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "thinkpad-e14";
   system.stateVersion = "24.11";
 }

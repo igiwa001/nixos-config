@@ -31,9 +31,9 @@
   in {
     # NixOS configuration
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      thinkpad-e14 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nixos/configuration.nix];
+        modules = [./hosts/thinkpad-e14/configuration.nix];
       };
     };
     # Home-manager configuration
