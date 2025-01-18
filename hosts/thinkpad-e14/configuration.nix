@@ -10,6 +10,7 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
     ../modules/systemd-boot.nix
     ../modules/networking.nix
+    ../modules/bluetooth.nix
     ../modules/common.nix
     ../modules/locale.nix
     ../modules/user.nix
