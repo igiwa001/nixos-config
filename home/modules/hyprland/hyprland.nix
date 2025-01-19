@@ -44,6 +44,8 @@
         vrr = true;
       };
 
+      xwayland.force_zero_scaling = true;
+
       animation = [
         "global, 1, 3, default"
       ];
