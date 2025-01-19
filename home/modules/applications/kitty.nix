@@ -14,7 +14,7 @@
       disable_ligatures = "never";
       scrollback_indicator_opacity = 0;
       mouse_hide_wait = -1;
-      background_opacity = 0.8;
+      background_opacity = 0.7;
     };
   };
 }
