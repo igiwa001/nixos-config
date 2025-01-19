@@ -21,6 +21,9 @@
   nixpkgs.config.allowUnfree = lib.mkDefault true;
   documentation.nixos.enable = lib.mkDefault false;
 
+  # Nerd fonts
+  fonts.packages = [pkgs.nerdfonts];
+
   # Common packages and binaries
   environment.systemPackages = with pkgs; [
     wget

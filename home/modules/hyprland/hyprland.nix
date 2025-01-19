@@ -7,7 +7,7 @@
 }: {
   imports = [
     ./waybar.nix
-    ./rofi.nix
+    ./rofi/rofi.nix
     ./lockscreen.nix
     ./mako.nix
     ./swayosd.nix
