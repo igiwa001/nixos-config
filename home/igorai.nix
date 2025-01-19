@@ -14,6 +14,7 @@
     ./modules/applications/firefox.nix
     ./modules/applications/slack.nix
     ./modules/applications/discord.nix
+    ./modules/applications/spotify.nix
   ];
 
   # Nixpkgs config
