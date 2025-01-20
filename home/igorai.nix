@@ -16,6 +16,7 @@
     ./modules/applications/slack.nix
     ./modules/applications/discord.nix
     ./modules/applications/spotify.nix
+    ./modules/applications/libreoffice.nix
   ];
 
   # Nixpkgs config
