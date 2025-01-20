@@ -17,8 +17,8 @@ in {
       enable = true;
       keymaps = {
         "<C-f>" = {action = "find_files";};
-        "<leader>fg" = {action = "live_grep";};
-        "<leader>fh" = {action = "find_files hidden=true no_ignore=true";};
+        "<C-g>" = {action = "live_grep";};
+        "<C-h>" = {action = "find_files hidden=true no_ignore=true";};
       };
       settings = {
         defaults.mappings = {
