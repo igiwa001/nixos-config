@@ -35,6 +35,10 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/thinkpad-e14/configuration.nix];
       };
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/desktop/configuration.nix];
+      };
     };
     # Home-manager configuration
     homeConfigurations = {
