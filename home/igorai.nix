@@ -17,6 +17,7 @@
     ./modules/applications/discord.nix
     ./modules/applications/spotify.nix
     ./modules/applications/libreoffice.nix
+    ./modules/applications/mpv.nix
   ];
 
   # Nixpkgs config
