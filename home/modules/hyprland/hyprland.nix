@@ -11,6 +11,7 @@
     ./lockscreen.nix
     ./mako.nix
     ./swayosd.nix
+    ./clipse.nix
   ];
 
   wayland.windowManager.hyprland = {
