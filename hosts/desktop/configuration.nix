@@ -8,19 +8,19 @@
   imports = [
     ./hardware-configuration.nix
     # TODO: Hardware configuration
-    ../modules/nvidia.nix
-    ../modules/systemd-boot.nix
-    ../modules/bluetooth.nix
-    ../modules/common.nix
-    ../modules/locale.nix
-    ../modules/user.nix
-    ../modules/pipewire.nix
-    ../modules/keyring.nix
-    ../modules/xdg-portal.nix
-    ../modules/gdm.nix
-    ../modules/hyprland.nix
-    ../modules/steam.nix
-    ../modules/thunar.nix
+    ../modules/hardware/nvidia.nix
+    ../modules/system/systemd-boot.nix
+    ../modules/system/bluetooth.nix
+    ../modules/system/common.nix
+    ../modules/system/locale.nix
+    ../modules/system/user.nix
+    ../modules/programs/pipewire.nix
+    ../modules/programs/keyring.nix
+    ../modules/programs/xdg-portal.nix
+    ../modules/programs/gdm.nix
+    ../modules/programs/hyprland.nix
+    ../modules/applications/steam.nix
+    ../modules/applications/thunar.nix
   ];
 
   # Correct scaling on xwayland apps
