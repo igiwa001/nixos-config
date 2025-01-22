@@ -20,6 +20,7 @@
     ../modules/gdm.nix
     ../modules/hyprland.nix
     ../modules/steam.nix
+    ../modules/thunar.nix
   ];
 
   # Correct scaling on xwayland apps

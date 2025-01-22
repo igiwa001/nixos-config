@@ -107,6 +107,7 @@
 
         "SUPER, T, exec, kitty"
         "SUPER, B, exec, firefox"
+        "SUPER, E, exec, thunar"
       ];
     };
   };
