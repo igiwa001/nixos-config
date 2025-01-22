@@ -12,6 +12,8 @@
   toggle_mic = "swayosd-client --input-volume mute-toggle";
   brightness_raise = "swayosd-client --brightness raise";
   brightness_lower = "swayosd-client --brightness lower";
+  mic_status = "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -c MUTED";
+  update_mic_led = "brightnessctl -d platform::micmute set $(${mic_status})";
 in {
   wayland.windowManager.hyprland.settings = {
     bindel = [
@@ -22,8 +24,9 @@ in {
     ];
     bindl = [
       ", XF86AudioMute, exec, ${toggle_mute}"
-      ", XF86AudioMicMute, exec, ${toggle_mic}"
+      ", XF86AudioMicMute, exec, ${toggle_mic} && ${update_mic_led}"
     ];
   };
   services.swayosd.enable = true;
+  home.packages = [pkgs.brightnessctl];
 }
