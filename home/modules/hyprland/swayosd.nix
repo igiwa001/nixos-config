@@ -14,6 +14,7 @@
   brightness_lower = "swayosd-client --brightness lower";
   mic_status = "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -c MUTED";
   update_mic_led = "brightnessctl -d platform::micmute set $(${mic_status})";
+  toggle_nightlight = "kill $(pidof hyprsunset) || hyprsunset -t 3500 &";
 in {
   wayland.windowManager.hyprland.settings = {
     bindel = [
@@ -25,8 +26,12 @@ in {
     bindl = [
       ", XF86AudioMute, exec, ${toggle_mute}"
       ", XF86AudioMicMute, exec, ${toggle_mic} && ${update_mic_led}"
+      ", XF86Favorites, exec, ${toggle_nightlight}"
     ];
   };
   services.swayosd.enable = true;
-  home.packages = [pkgs.brightnessctl];
+  home.packages = [
+    pkgs.brightnessctl
+    pkgs.hyprsunset
+  ];
 }
