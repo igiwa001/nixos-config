@@ -35,6 +35,11 @@
       tabstop = 2;
       shiftwidth = 2;
       relativenumber = true;
+      number = true;
+    };
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
     };
 
     colorscheme = "duskfox";
