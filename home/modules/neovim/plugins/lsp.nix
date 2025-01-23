@@ -12,6 +12,7 @@
         servers = {
           nil_ls.enable = true;
           ts_ls.enable = true;
+          clangd.enable = true;
         };
       };
     };
