@@ -14,6 +14,8 @@
         typescript = ["prettierd"];
         javascriptreact = ["prettierd"];
         typescriptreact = ["prettierd"];
+        c = ["clang_format"];
+        cpp = ["clang_format"];
       };
     };
     keymaps = [
@@ -32,5 +34,6 @@
   home.packages = [
     pkgs.alejandra
     pkgs.prettierd
+    pkgs.clang-tools
   ];
 }
