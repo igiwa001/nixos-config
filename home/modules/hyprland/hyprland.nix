@@ -64,11 +64,6 @@
         "SUPERSHIFT, F, fullscreen, 0"
         "SUPER, G, togglefloating"
 
-        "ALT, TAB, cyclenext"
-        "ALT, TAB, bringactivetotop"
-        "ALTSHIFT, TAB, cyclenext, prev"
-        "ALTSHIFT, TAB, bringactivetotop"
-
         "SUPER, H, movefocus, l"
         "SUPER, J, movefocus, d"
         "SUPER, K, movefocus, u"
@@ -90,11 +85,6 @@
         "SUPER, 9, workspace, 9"
         "SUPER, 0, workspace, 10"
 
-        "ALT, H, workspace, e-1"
-        "ALT, L, workspace, e+1"
-        "ALTSHIFT, H, movetoworkspace, e-1"
-        "ALTSHIFT, L, movetoworkspace, e+1"
-
         "SUPERSHIFT, 1, movetoworkspace, 1"
         "SUPERSHIFT, 2, movetoworkspace, 2"
         "SUPERSHIFT, 3, movetoworkspace, 3"
@@ -106,9 +96,24 @@
         "SUPERSHIFT, 9, movetoworkspace, 9"
         "SUPERSHIFT, 0, movetoworkspace, 10"
 
+        "ALT, H, movewindow, mon:l"
+        "ALT, J, movewindow, mon:d"
+        "ALT, K, movewindow, mon:u"
+        "ALT, L, movewindow, mon:r"
+
+        "ALTSHIFT, H, movecurrentworkspacetomonitor, l"
+        "ALTSHIFT, J, movecurrentworkspacetomonitor, d"
+        "ALTSHIFT, K, movecurrentworkspacetomonitor, u"
+        "ALTSHIFT, L, movecurrentworkspacetomonitor, r"
+
         "SUPER, T, exec, kitty"
         "SUPER, B, exec, firefox"
         "SUPER, E, exec, thunar"
+      ];
+
+      monitor = [
+        "desc:LG Electronics LG ULTRAGEAR 404NTGYA6311, highres, auto-left, 1.25"
+        "desc:AOC 24P2W1DG5 PSMM1HA001150, highres, auto-right, auto, transform, 3"
       ];
     };
   };
