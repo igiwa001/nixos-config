@@ -15,5 +15,12 @@
     options = ["--cmd cd"];
   };
   programs.htop.enable = true;
-  home.packages = [pkgs.screen];
+  programs.nh = {
+    enable = true;
+    flake = "${config.home.homeDirectory}/.dotfiles";
+  };
+  home.packages = [
+    pkgs.screen
+    pkgs.nix-output-monitor
+  ];
 }
