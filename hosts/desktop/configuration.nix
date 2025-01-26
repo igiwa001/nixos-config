@@ -21,6 +21,7 @@
     ../modules/programs/hyprland.nix
     ../modules/applications/steam.nix
     ../modules/applications/thunar.nix
+    ../modules/applications/noisetorch.nix
   ];
 
   # Correct scaling on xwayland apps
