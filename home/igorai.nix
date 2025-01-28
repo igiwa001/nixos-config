@@ -18,6 +18,7 @@
     ./modules/applications/spotify.nix
     ./modules/applications/libreoffice.nix
     ./modules/applications/mpv.nix
+    ./modules/applications/teams.nix
   ];
 
   # Nixpkgs config
