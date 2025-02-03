@@ -19,6 +19,7 @@
     ./modules/applications/libreoffice.nix
     ./modules/applications/mpv.nix
     ./modules/applications/teams.nix
+    ./modules/applications/wooting.nix
   ];
 
   # Nixpkgs config
