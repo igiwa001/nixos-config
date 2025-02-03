@@ -28,6 +28,8 @@
     allowUnfreePredicate = _: true;
   };
 
+  home.packages = [pkgs.google-chrome];
+
   # Set username
   home = {
     username = "igorai";
