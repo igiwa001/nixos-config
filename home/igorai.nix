@@ -9,6 +9,7 @@
     ./modules/theme.nix
     ./modules/shell.nix
     ./modules/git.nix
+    ./modules/ssh.nix
     ./modules/neovim/neovim.nix
     ./modules/hyprland/hyprland.nix
     ./modules/applications/kitty.nix
