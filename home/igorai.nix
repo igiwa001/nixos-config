@@ -19,7 +19,6 @@
     ./modules/applications/libreoffice.nix
     ./modules/applications/mpv.nix
     ./modules/applications/teams.nix
-    ./modules/applications/wooting.nix
   ];
 
   # Nixpkgs config
@@ -27,8 +26,6 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
-
-  home.packages = [pkgs.google-chrome];
 
   # Set username
   home = {
