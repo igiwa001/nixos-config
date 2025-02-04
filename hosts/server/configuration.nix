@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     # TODO: Hardware configuration
     ../modules/hardware/nvidia.nix
-    ../modules/system/systemd-boot.nix
+    ../modules/system/grub.nix
     ../modules/system/common.nix
     ../modules/system/locale.nix
     ../modules/system/user.nix
