@@ -18,6 +18,8 @@
     ../modules/services/ssh.nix
   ];
 
+  boot.loader.grub.device = "/dev/sda";
+
   networking.hostName = "server";
   system.stateVersion = "24.11";
 }
