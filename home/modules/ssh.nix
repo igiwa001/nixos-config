@@ -8,7 +8,7 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "nix-server".hostname = "188.113.113.236";
+      "debian-server".hostname = "188.113.113.236";
     };
   };
 }

@@ -39,10 +39,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/desktop/configuration.nix];
       };
-      server = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/server/configuration.nix];
-      };
     };
     # Home-manager configuration
     homeConfigurations = {
