@@ -51,6 +51,11 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/igorai.nix];
       };
+      igorai-minimal = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/igorai-minimal.nix];
+      };
     };
   };
 }
