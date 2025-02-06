@@ -19,6 +19,7 @@
     ../modules/programs/xdg-portal.nix
     ../modules/programs/gdm.nix
     ../modules/programs/hyprland.nix
+    ../modules/programs/podman.nix
     ../modules/applications/steam.nix
     ../modules/applications/thunar.nix
     ../modules/applications/noisetorch.nix
