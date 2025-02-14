@@ -14,6 +14,7 @@
           ts_ls.enable = true;
           tailwindcss.enable = true;
           clangd.enable = true;
+          nushell.enable = true;
         };
       };
     };
