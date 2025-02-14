@@ -7,9 +7,10 @@
 }: {
   imports = [
     ./modules/theme.nix
-    ./modules/shell.nix
-    ./modules/git.nix
-    ./modules/ssh.nix
+    ./modules/shell/bash.nix
+    ./modules/shell/utils.nix
+    ./modules/shell/git.nix
+    ./modules/shell/ssh.nix
     ./modules/neovim/neovim.nix
     ./modules/hyprland/hyprland.nix
     ./modules/applications/kitty.nix

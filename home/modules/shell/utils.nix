@@ -5,10 +5,6 @@
   pkgs,
   ...
 }: {
-  programs.bash = {
-    enable = true;
-    initExtra = "[[ -f ~/.profile ]] && . ~/.profile";
-  };
   programs.eza.enable = true;
   programs.zoxide = {
     enable = true;
