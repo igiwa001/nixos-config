@@ -16,4 +16,7 @@
   # Lazygit
   programs.lazygit.enable = true;
   home.shellAliases.lgit = "lazygit";
+
+  # Github cli
+  programs.gh.enable = true;
 }
