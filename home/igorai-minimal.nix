@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./modules/shell/bash.nix
+    ./modules/shell/nushell.nix
     ./modules/shell/utils.nix
     ./modules/shell/git.nix
     ./modules/shell/ssh.nix

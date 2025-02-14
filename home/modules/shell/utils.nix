@@ -6,6 +6,7 @@
   ...
 }: {
   programs.eza.enable = true;
+  home.shellAliases.tree = "eza -T";
   programs.zoxide = {
     enable = true;
     options = ["--cmd cd"];
