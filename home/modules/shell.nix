@@ -22,5 +22,6 @@
   home.packages = [
     pkgs.screen
     pkgs.nix-output-monitor
+    pkgs.google-cloud-sdk
   ];
 }
