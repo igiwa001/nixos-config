@@ -12,6 +12,7 @@
     ./mako.nix
     ./swayosd.nix
     ./clipse.nix
+    ./hyprshot.nix
   ];
 
   wayland.windowManager.hyprland = {
