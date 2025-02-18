@@ -4,7 +4,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  rustpkgs = inputs.fenix.packages.x86_64-linux.latest;
+in {
   programs.nixvim = {
     plugins = {
       lsp = {
@@ -15,6 +17,16 @@
           tailwindcss.enable = true;
           clangd.enable = true;
           nushell.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+            installRustfmt = true;
+            package = rustpkgs.rust-analyzer;
+            cargoPackage = rustpkgs.cargo;
+            rustcPackage = rustpkgs.rustc;
+            rustfmtPackage = rustpkgs.rustfmt;
+          };
         };
       };
     };

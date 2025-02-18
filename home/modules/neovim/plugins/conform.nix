@@ -4,7 +4,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  rustpkgs = inputs.fenix.packages.x86_64-linux.latest;
+in {
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
@@ -16,6 +18,7 @@
         typescriptreact = ["prettierd"];
         c = ["clang_format"];
         cpp = ["clang_format"];
+        rust = ["rustfmt"];
       };
     };
     keymaps = [
@@ -35,5 +38,6 @@
     pkgs.alejandra
     pkgs.prettierd
     pkgs.clang-tools
+    rustpkgs.rustfmt
   ];
 }
