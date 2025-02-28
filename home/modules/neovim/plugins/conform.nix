@@ -4,9 +4,7 @@
   config,
   pkgs,
   ...
-}: let
-  rustpkgs = inputs.fenix.packages.x86_64-linux.latest;
-in {
+}: {
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
@@ -38,6 +36,6 @@ in {
     pkgs.alejandra
     pkgs.prettierd
     pkgs.clang-tools
-    rustpkgs.rustfmt
+    pkgs.rustfmt
   ];
 }
