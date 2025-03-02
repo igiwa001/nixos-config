@@ -43,7 +43,7 @@
 
       misc = {
         disable_splash_rendering = true;
-        vrr = true;
+        vrr = false;
       };
 
       xwayland.force_zero_scaling = true;
