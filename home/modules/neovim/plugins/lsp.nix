@@ -21,6 +21,7 @@
             installRustc = true;
             installRustfmt = true;
           };
+          pylyzer.enable = true;
         };
       };
     };

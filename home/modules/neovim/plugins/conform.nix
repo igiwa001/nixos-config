@@ -17,6 +17,7 @@
         c = ["clang_format"];
         cpp = ["clang_format"];
         rust = ["rustfmt"];
+        python = ["black"];
       };
     };
     keymaps = [
@@ -37,5 +38,6 @@
     pkgs.prettierd
     pkgs.clang-tools
     pkgs.rustfmt
+    pkgs.black
   ];
 }
