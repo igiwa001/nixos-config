@@ -22,7 +22,10 @@
   documentation.nixos.enable = lib.mkDefault false;
 
   # Nerd fonts
-  fonts.packages = [pkgs.nerdfonts];
+  fonts.packages = [
+    pkgs.nerdfonts
+    pkgs.corefonts
+  ];
 
   # Common packages and binaries
   environment.systemPackages = with pkgs; [
