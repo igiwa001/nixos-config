@@ -11,6 +11,7 @@
     ../modules/hardware/nvidia.nix
     ../modules/hardware/wooting.nix
     ../modules/system/systemd-boot.nix
+    ../modules/system/networking.nix
     ../modules/system/bluetooth.nix
     ../modules/system/common.nix
     ../modules/system/locale.nix
