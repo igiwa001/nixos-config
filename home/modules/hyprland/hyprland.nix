@@ -113,7 +113,7 @@
       ];
 
       monitor = [
-        "desc:LG Electronics LG ULTRAGEAR 404NTGYA6311, highres, auto, 2"
+        "desc:LG Electronics LG ULTRAGEAR 404NTGYA6311, preferred, 0x0, 1.33"
         "desc:AOC 2470W GGJL1HA182550, highres, auto-up, auto"
       ];
     };
