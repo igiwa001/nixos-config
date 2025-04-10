@@ -8,7 +8,6 @@
   imports = [
     ./hardware-configuration.nix
     # TODO: Hardware configuration
-    ../modules/hardware/nvidia.nix
     ../modules/hardware/wooting.nix
     ../modules/system/systemd-boot.nix
     ../modules/system/networking.nix

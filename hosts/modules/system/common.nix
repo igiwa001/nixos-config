@@ -5,6 +5,9 @@
   pkgs,
   ...
 }: {
+  # Pin kernel version
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+
   # General NixOS settings
   nix = {
     channel.enable = lib.mkDefault false;
