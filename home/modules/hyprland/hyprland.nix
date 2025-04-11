@@ -48,6 +48,8 @@
 
       xwayland.force_zero_scaling = true;
 
+      cursor.no_hardware_cursors = true;
+
       animation = [
         "global, 1, 3, default"
       ];
