@@ -6,8 +6,12 @@
   ...
 }: {
   boot = {
-    # Initrd bsod screen
-    initrd.systemd.enable = true;
+    initrd = {
+      systemd = {
+        enable = true;
+        dbus.enable = true;
+      };
+    };
 
     # Systemd bootloader
     loader = {
