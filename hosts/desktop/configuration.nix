@@ -29,6 +29,9 @@
   # Correct scaling on xwayland apps
   environment.sessionVariables.GDK_SCALE = "1.5";
 
+  # Use unstable kernel for latest Nouveau driver
+  boot.kernelPackages = lib.mkForce inputs.unstable.legacyPackages.x86_64-linux.linuxKernel.packages.linux_6_14;
+
   networking.hostName = "desktop";
   system.stateVersion = "24.11";
 }
