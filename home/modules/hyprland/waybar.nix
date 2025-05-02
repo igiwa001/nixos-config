@@ -35,4 +35,7 @@
       };
     };
   };
+  wayland.windowManager.hyprland.settings.bind = [
+    "SUPER, W, exec, systemctl --user $(if systemctl --user is-active --quiet waybar; then echo stop; else echo start; fi) waybar"
+  ];
 }
