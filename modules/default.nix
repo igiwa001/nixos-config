@@ -5,5 +5,6 @@
     ./user.nix
     ./networking.nix
     ./locale.nix
+    ./bluetooth.nix
   ];
 }
