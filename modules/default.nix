@@ -1,3 +1,8 @@
 {...}: {
-  imports = [./bootloader.nix ./nixos.nix ./user.nix];
+  imports = [
+    ./bootloader.nix
+    ./nixos.nix
+    ./user.nix
+    ./networking.nix
+  ];
 }
