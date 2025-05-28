@@ -18,4 +18,14 @@ jobs:
       with:
         primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
         restore-prefixes-first-match: nix-${{ runner.os }}-
+        gc-max-store-size: 15G
     - run: nix flake check
+    - uses: ./.github/actions/nixos-rebuild
+      with:
+        hostname: "desktop"
+    - uses: ./.github/actions/nixos-rebuild
+      with:
+        hostname: "thinkpad-e14"
+    - uses: ./.github/actions/nixos-rebuild
+      with:
+        hostname: "thinkpad-modular"

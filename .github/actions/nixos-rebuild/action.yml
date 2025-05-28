@@ -1,0 +1,12 @@
+name: "Nixos-rebuild"
+description: "Builds the specified nixos configuration"
+inputs:
+  hostname:
+    description: "Hostname of the nixos configuration to build"
+    type: "string"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: nix build -L -v --no-link ".#nixosConfigurations.${{ inputs.hostname }}.config.system.build.toplevel"
+      shell: "bash"
