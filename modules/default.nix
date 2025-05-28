@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./bootloader.nix];
+  imports = [./bootloader.nix ./nixos.nix];
 }
