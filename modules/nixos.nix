@@ -42,7 +42,7 @@
       };
 
       settings = {
-        experimental-settings = ["flakes" "nix-command"];
+        experimental-features = ["flakes" "nix-command"];
         auto-optimise-store = config.nixos.optimise;
         max-jobs = lib.mkIf (config.nixos.cores != 0) config.nixos.cores;
       };

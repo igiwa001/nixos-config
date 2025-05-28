@@ -10,7 +10,7 @@
     };
 
     configurationLimit = lib.mkOption {
-      type = lib.types.positive;
+      type = lib.types.ints.positive;
       default = 3;
     };
   };
