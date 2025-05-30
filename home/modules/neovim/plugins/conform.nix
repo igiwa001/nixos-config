@@ -18,6 +18,7 @@
         cpp = ["clang_format"];
         rust = ["rustfmt"];
         python = ["black"];
+        json = ["prettierd"];
       };
     };
     keymaps = [
