@@ -10,6 +10,7 @@
     ./networking.nix
     ./locale.nix
     ./bluetooth.nix
+    ./pipewire.nix
   ];
 
   options.settings.system = {
