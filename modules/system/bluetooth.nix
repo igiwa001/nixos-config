@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.bluetooth = {
+  options.settings.bluetooth = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -17,9 +17,9 @@
 
   config = {
     hardware.bluetooth = {
-      enable = config.bluetooth.enable;
-      powerOnBoot = config.bluetooth.powerOnBoot;
+      enable = config.settings.bluetooth.enable;
+      powerOnBoot = config.settings.bluetooth.powerOnBoot;
     };
-    services.blueman.enable = config.bluetooth.enable;
+    services.blueman.enable = config.settings.bluetooth.enable;
   };
 }

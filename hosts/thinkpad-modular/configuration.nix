@@ -5,8 +5,13 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix ../../modules];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules
+  ];
 
-  networking.hostName = "thinkpad-modular";
-  system.stateVersion = "24.11";
+  settings = {
+    system.stateVersion = "24.11";
+    networking.hostname = "thinkpad-modular";
+  };
 }

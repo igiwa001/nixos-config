@@ -3,21 +3,21 @@
   config,
   ...
 }: {
-  options.locale = {
+  options.settings.locale = {
     timeZone = lib.mkOption {
       type = lib.types.str;
       default = "Europe/Oslo";
     };
 
-    language = lib.mkOption {
+    keymap = lib.mkOption {
       type = lib.types.str;
       default = "no";
     };
   };
 
   config = {
-    time.timeZone = config.locale.timeZone;
-    console.keyMap = config.locale.language;
-    services.xserver.xkb.layout = config.locale.language;
+    time.timeZone = config.settings.locale.timeZone;
+    console.keyMap = config.settings.locale.keymap;
+    services.xserver.xkb.layout = config.settings.locale.keymap;
   };
 }

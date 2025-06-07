@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.user = {
+  options.settings.user = {
     username = lib.mkOption {
       type = lib.types.str;
       default = "igorai";
@@ -15,10 +15,10 @@
     };
   };
 
-  config.users.users.${config.user.username} = {
+  config.users.users.${config.settings.user.username} = {
     isNormalUser = true;
     linger = true;
     initialPassword = "password";
-    extraGroups = config.user.groups;
+    extraGroups = config.settings.user.groups;
   };
 }

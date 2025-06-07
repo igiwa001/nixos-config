@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.bootloader = {
+  options.settings.bootloader = {
     initrd = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -16,7 +16,8 @@
   };
 
   config.boot = {
-    initrd = lib.mkIf config.bootloader.initrd {
+    initrd = lib.mkIf config.settings.bootloader.initrd {
+      enable = true;
       systemd = {
         enable = true;
         dbus.enable = true;
@@ -28,7 +29,7 @@
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = config.bootloader.configurationLimit;
+        configurationLimit = config.settings.bootloader.configurationLimit;
       };
     };
   };

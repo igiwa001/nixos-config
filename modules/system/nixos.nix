@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.nixos = {
+  options.settings.nixos = {
     gc = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -15,8 +15,8 @@
     };
 
     cores = lib.mkOption {
-      type = lib.types.ints.unsigned;
-      default = 0;
+      type = with lib.types; either ints.positive (enum ["auto"]);
+      default = "auto";
     };
 
     unfree = lib.mkOption {
@@ -29,26 +29,26 @@
     nix = {
       channel.enable = false;
 
-      gc = lib.mkIf config.nixos.gc {
+      gc = lib.mkIf config.settings.nixos.gc {
         automatic = true;
         persistent = true;
         dates = "weekly";
         options = "--delete-older-than 1w";
       };
 
-      optimise = lib.mkIf config.nixos.optimise {
+      optimise = lib.mkIf config.settings.nixos.optimise {
         automatic = true;
         dates = ["weekly"];
       };
 
       settings = {
         experimental-features = ["flakes" "nix-command"];
-        auto-optimise-store = config.nixos.optimise;
-        max-jobs = lib.mkIf (config.nixos.cores != 0) config.nixos.cores;
+        auto-optimise-store = config.settings.nixos.optimise;
+        max-jobs = config.settings.nixos.cores;
       };
     };
 
-    nixpkgs.config = lib.mkIf config.nixos.unfree {
+    nixpkgs.config = lib.mkIf config.settings.nixos.unfree {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
