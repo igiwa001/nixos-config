@@ -3,5 +3,6 @@
     ./system
     ./hardware
     ./programs
+    ./hyprland
   ];
 }
