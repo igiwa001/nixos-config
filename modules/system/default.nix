@@ -22,5 +22,6 @@
 
   config = {
     system.stateVersion = with config.settings.system; lib.mkIf (stateVersion != null) stateVersion;
+    home-manager.users.${config.settings.user.username}.home.stateVersion = config.system.stateVersion;
   };
 }
