@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.settings.nixos = {
@@ -26,6 +27,8 @@
   };
 
   config = {
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+
     nix = {
       channel.enable = false;
 
