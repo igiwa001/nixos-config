@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./sddm.nix];
+  imports = [./sddm.nix ./kitty.nix];
 }
