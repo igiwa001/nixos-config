@@ -1,3 +1,7 @@
 {...}: {
-  imports = [./system ./hardware];
+  imports = [
+    ./system
+    ./hardware
+    ./programs
+  ];
 }
