@@ -44,12 +44,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/thinkpad-modular/configuration.nix
+          home-manager.nixosModules.home-manager
         ];
       };
       desktop-modular = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/desktop-modular/configuration.nix
+          home-manager.nixosModules.home-manager
         ];
       };
     };
