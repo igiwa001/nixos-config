@@ -11,7 +11,7 @@
 
     groups = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = ["wheel"];
+      default = [];
     };
   };
 
@@ -19,6 +19,6 @@
     isNormalUser = true;
     linger = true;
     initialPassword = "password";
-    extraGroups = config.settings.user.groups;
+    extraGroups = ["wheel"] ++ config.settings.user.groups;
   };
 }
