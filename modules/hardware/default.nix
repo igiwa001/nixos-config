@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./wooting.nix];
+  imports = [./wooting.nix ./graphics.nix];
 }
