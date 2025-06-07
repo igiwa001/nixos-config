@@ -28,4 +28,7 @@ jobs:
         hostname: "thinkpad-e14"
     - uses: ./.github/actions/nixos-rebuild
       with:
+        hostname: "desktop-modular"
+    - uses: ./.github/actions/nixos-rebuild
+      with:
         hostname: "thinkpad-modular"

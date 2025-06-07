@@ -46,6 +46,12 @@
           ./hosts/thinkpad-modular/configuration.nix
         ];
       };
+      desktop-modular = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/desktop-modular/configuration.nix
+        ];
+      };
     };
     # Home-manager configuration
     homeConfigurations = {

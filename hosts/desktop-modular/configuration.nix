@@ -6,6 +6,7 @@
 
   settings = {
     system.stateVersion = "24.11";
-    networking.hostname = "thinkpad-modular";
+    networking.hostname = "desktop-modular";
+    hardware.wooting = true;
   };
 }
