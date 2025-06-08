@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  imports = [./git.nix];
+
   options.settings.shell = {
     eza = lib.mkOption {
       type = lib.types.bool;
