@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -23,5 +24,12 @@
   config = {
     system.stateVersion = with config.settings.system; lib.mkIf (stateVersion != null) stateVersion;
     home-manager.users.${config.settings.user.username}.home.stateVersion = config.system.stateVersion;
+
+    environment.systemPackages = [
+      pkgs.curl
+      pkgs.zip
+      pkgs.unzip
+      pkgs.vim
+    ];
   };
 }
