@@ -62,5 +62,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
     };
+
+    home-manager.users.${config.settings.user.username}.programs.home-manager.enable = true;
   };
 }
