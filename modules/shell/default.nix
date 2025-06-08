@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./git.nix];
+  imports = [./git.nix ./bash.nix];
 
   options.settings.shell = {
     eza = lib.mkOption {
@@ -33,7 +33,7 @@
         options = ["--cmd cd"];
       };
 
-      programs.nh = {
+      programs.nh = lib.mkIf config.settings.shell.nh {
         enable = true;
         flake = "${config.home-manager.users.${config.settings.user.username}.home.homeDirectory}/.dotfiles";
       };
