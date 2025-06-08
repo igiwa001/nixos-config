@@ -15,10 +15,17 @@
     };
   };
 
-  config.users.users.${config.settings.user.username} = {
-    isNormalUser = true;
-    linger = true;
-    initialPassword = "password";
-    extraGroups = ["wheel"] ++ config.settings.user.groups;
+  config = {
+    users.users.${config.settings.user.username} = {
+      isNormalUser = true;
+      linger = true;
+      initialPassword = "password";
+      extraGroups = ["wheel"] ++ config.settings.user.groups;
+    };
+
+    home-manager.users.${config.settings.user.username}.home = {
+      username = config.settings.user.username;
+      homeDirectory = "/home/${config.settings.user.username}";
+    };
   };
 }
