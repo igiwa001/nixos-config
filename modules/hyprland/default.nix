@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.settings.hyprland = {
@@ -32,6 +33,16 @@
       xwayland.enable = config.settings.hyprland.xwayland;
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
 
     home-manager.users.${config.settings.user.username}.wayland.windowManager.hyprland = {
       enable = true;
