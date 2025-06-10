@@ -1,0 +1,17 @@
+{lib, ...}: {
+  options.settings.defaults = {
+    terminal = lib.mkOption {
+      type = with lib.types; nullOr str;
+      default = null;
+    };
+
+    browser = lib.mkOption {
+      type = with lib.types; nullOr str;
+      default = null;
+    };
+  };
+
+  config.settings.defaults = {
+    terminal = "kitty";
+  };
+}
