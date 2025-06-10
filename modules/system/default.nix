@@ -12,6 +12,7 @@
     ./locale.nix
     ./bluetooth.nix
     ./pipewire.nix
+    ./keyring.nix
   ];
 
   options.settings.system = {
