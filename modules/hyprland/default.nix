@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./swayosd.nix
+    ./monitors.nix
   ];
 
   options.settings.hyprland = {
