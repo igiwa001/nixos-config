@@ -96,6 +96,10 @@
             hide_on_key_press = true;
           };
 
+          animation = [
+            "global, 1, 3, default"
+          ];
+
           bindm = [
             "SUPER, mouse:272, movewindow"
             "SUPER, mouse:273, resizewindow"
