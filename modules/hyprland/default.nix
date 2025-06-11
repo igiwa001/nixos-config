@@ -52,7 +52,7 @@
       enable = true;
       xwayland.enable = config.settings.hyprland.xwayland;
 
-      settings =
+      settings = lib.mkMerge [
         {
           general = {
             gaps_in = 3;
@@ -154,7 +154,8 @@
             ++ lib.optionals (config.settings.defaults.terminal != null) ["SUPER, T, exec, ${config.settings.defaults.terminal}"]
             ++ lib.optionals (config.settings.defaults.browser != null) ["SUPER, B, exec, ${config.settings.defaults.browser}"];
         }
-        // config.settings.hyprland.settings;
+        config.settings.hyprland.settings
+      ];
     };
   };
 }
