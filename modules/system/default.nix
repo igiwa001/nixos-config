@@ -13,6 +13,7 @@
     ./bluetooth.nix
     ./pipewire.nix
     ./keyring.nix
+    ./fonts.nix
   ];
 
   options.settings.system = {
