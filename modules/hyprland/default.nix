@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./swayosd.nix
+  ];
+
   options.settings.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
