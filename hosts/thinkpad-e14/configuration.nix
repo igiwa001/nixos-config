@@ -17,7 +17,7 @@
     ../modules/programs/pipewire.nix
     ../modules/programs/keyring.nix
     ../modules/programs/xdg-portal.nix
-    ../modules/programs/sddm.nix
+    ../modules/programs/gdm.nix
     ../modules/programs/hyprland.nix
     ../modules/programs/podman.nix
     ../modules/applications/steam.nix
