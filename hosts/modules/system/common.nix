@@ -6,7 +6,7 @@
   ...
 }: {
   # Pin kernel version
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # General NixOS settings
   nix = {
