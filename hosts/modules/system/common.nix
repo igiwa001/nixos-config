@@ -25,10 +25,11 @@
   documentation.nixos.enable = lib.mkDefault false;
 
   # Nerd fonts
-  fonts.packages = [
-    pkgs.nerdfonts
-    pkgs.corefonts
-  ];
+  fonts.packages =
+    [
+      pkgs.corefonts
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Common packages and binaries
   environment.systemPackages = with pkgs; [

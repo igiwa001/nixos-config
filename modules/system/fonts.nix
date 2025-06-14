@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   options.settings.fonts = {
@@ -15,8 +14,8 @@
       default = false;
     };
 
-    installedFonts = lib.mkOption {
-      type = with lib.types; listOf str;
+    packages = lib.mkOption {
+      type = with lib.types; listOf package;
       default = [];
     };
   };
@@ -29,14 +28,7 @@
         hinting.enable = config.settings.fonts.hinting;
       };
 
-      packages = [
-        (pkgs.nerdfonts.override
-          {
-            fonts =
-              ["DejaVuSansMono"]
-              ++ config.settings.fonts.installedFonts;
-          })
-      ];
+      packages = config.settings.fonts.packages;
     };
   };
 }
