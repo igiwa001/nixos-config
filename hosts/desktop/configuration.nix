@@ -24,7 +24,8 @@
     ../modules/applications/steam.nix
     ../modules/applications/thunar.nix
     ../modules/applications/noisetorch.nix
-    ../modules/hardware/radeon9070-xt.nix
+    # ../modules/hardware/radeon9070-xt.nix
+    ../modules/programs/lact.nix
   ];
 
   # Correct scaling on xwayland apps
