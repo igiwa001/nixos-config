@@ -9,6 +9,7 @@
     ./monitors.nix
     ./settings.nix
     ./binds.nix
+    ./waybar
   ];
 
   options.settings.hyprland = {

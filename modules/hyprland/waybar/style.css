@@ -1,0 +1,93 @@
+@define-color base rgba(36, 39, 58, 0.6);
+@define-color text #cad3f5;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color red #ed8796;
+@define-color green #a6da95;
+@define-color blue #8aadf4;
+
+* {
+  font-family: FiraMono Nerd Font;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 0.8em;
+}
+
+window#waybar {
+  background: @base;
+  border: 2px solid @surface1;
+  color: @text;
+  padding: 0 0.3em;
+}
+
+tooltip {
+  background: @base;
+  border: 2px solid @surface1;
+  padding: 0;
+}
+
+tooltip label {
+  padding: 0;
+  color: @text;
+}
+
+.module {
+  background: @surface0;
+  border: 1.5px solid @surface1;
+  border-radius: 0.6em;
+  padding: 0.15em 0.35em;
+  margin: 0.3em 0;
+}
+
+.modules-right {
+  margin-right: 0.3em;
+}
+
+.modules-left {
+  margin-left: 0.3em;
+}
+
+#workspaces {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+#workspaces button {
+  background: @surface0;
+  border: 1.5px solid @surface1;
+  border-radius: 0.6em;
+  margin-right: 0.25em;
+  padding: 0 0.3em;
+  color: @text;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+}
+
+#workspaces button.visible {
+  color: @blue;
+}
+
+#workspaces button.active {
+  color: @green;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#window {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+#clock {
+  background: transparent;
+  border: none;
+  font-size: 22;
+  margin: 0;
+  padding: 0;
+}
