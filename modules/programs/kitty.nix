@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.settings.programs.kitty = {
@@ -14,6 +15,12 @@
     home-manager.users.${config.settings.user.username}.programs.kitty = {
       enable = true;
       shellIntegration.enableBashIntegration = true;
+
+      font = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "Fira Code Nerd Font";
+      };
+
       settings = {
         linux_display_server = "wayland";
         confirm_os_window_close = 2;
