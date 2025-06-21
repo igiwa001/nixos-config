@@ -26,6 +26,7 @@
     ../modules/applications/noisetorch.nix
     # ../modules/hardware/radeon9070-xt.nix
     ../modules/programs/lact.nix
+    ../modules/applications/adb.nix
   ];
 
   # Correct scaling on xwayland apps
