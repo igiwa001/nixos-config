@@ -35,7 +35,7 @@
 
       programs.nh = lib.mkIf config.settings.shell.nh {
         enable = true;
-        flake = "${config.home-manager.users.${config.settings.user.username}.home.homeDirectory}/.dotfiles";
+        flake = "${config.settings.user.homeDirectory}/.dotfiles";
       };
 
       home.packages = [

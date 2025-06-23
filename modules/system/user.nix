@@ -13,6 +13,11 @@
       type = lib.types.listOf lib.types.str;
       default = [];
     };
+
+    homeDirectory = lib.mkOption {
+      type = lib.types.str;
+      default = "/home/${config.settings.user.username}";
+    };
   };
 
   config = {
@@ -25,7 +30,7 @@
 
     home-manager.users.${config.settings.user.username}.home = {
       username = config.settings.user.username;
-      homeDirectory = "/home/${config.settings.user.username}";
+      homeDirectory = config.settings.user.homeDirectory;
     };
   };
 }
