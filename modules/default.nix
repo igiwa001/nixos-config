@@ -5,6 +5,5 @@
     ./programs
     ./hyprland
     ./shell
-    ./defaults.nix
   ];
 }

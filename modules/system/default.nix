@@ -14,6 +14,7 @@
     ./pipewire.nix
     ./keyring.nix
     ./fonts.nix
+    ./defaults.nix
   ];
 
   options.settings.system = {
