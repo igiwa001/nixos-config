@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home-manager.users.${config.settings.user.username}.wayland.windowManager.hyprland.settings = {
+  settings.hyprland.settings = {
     bindm = [
       "SUPER, mouse:272, movewindow"
       "SUPER, mouse:273, resizewindow"

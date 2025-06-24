@@ -1,5 +1,6 @@
 {
   lib,
+  my-lib,
   config,
   pkgs,
   ...
@@ -24,7 +25,7 @@
     };
 
     settings = lib.mkOption {
-      type = lib.types.attrs;
+      type = my-lib.types.mergeableAnything;
       default = {};
     };
   };
