@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.bootloader;
+in {
   options.settings.bootloader = {
     initrd = lib.mkOption {
       type = lib.types.bool;
@@ -16,7 +18,7 @@
   };
 
   config.boot = {
-    initrd = lib.mkIf config.settings.bootloader.initrd {
+    initrd = lib.mkIf cfg.initrd {
       enable = true;
       systemd = {
         enable = true;
@@ -29,7 +31,7 @@
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = config.settings.bootloader.configurationLimit;
+        configurationLimit = cfg.configurationLimit;
       };
     };
   };

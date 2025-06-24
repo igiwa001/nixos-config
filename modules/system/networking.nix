@@ -1,20 +1,19 @@
 {
   lib,
+  my-lib,
   config,
   ...
-}: {
-  options.settings.networking = {
-    hostname = lib.mkOption {
-      type = lib.types.nullOr (lib.types.strMatching "^$|^[[:alnum:]]([[:alnum:]_-]{0,61}[[:alnum:]])?$");
-      default = null;
-    };
+}: let
+  cfg = config.settings.networking;
+in {
+  options.settings.networking.hostname = lib.mkOption {
+    type = lib.types.nullOr my-lib.types.hostName;
+    default = null;
   };
 
   config = {
-    settings.user.groups = ["networkmanager"];
-
     networking = {
-      hostName = with config.settings.networking; lib.mkIf (hostname != null) hostname;
+      hostName = lib.mkIf (cfg.hostname != null) cfg.hostname;
 
       wireless.iwd.enable = true;
       networkmanager = {
@@ -25,5 +24,6 @@
         };
       };
     };
+    settings.user.groups = ["networkmanager"];
   };
 }

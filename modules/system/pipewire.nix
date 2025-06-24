@@ -3,15 +3,15 @@
   config,
   pkgs,
   ...
-}: {
-  options.settings.system = {
-    pipewire = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+}: let
+  cfg = config.settings.pipewire;
+in {
+  options.settings.pipewire.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
   };
 
-  config = lib.mkIf config.settings.system.pipewire {
+  config = lib.mkIf cfg.enable {
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

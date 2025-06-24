@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.locale;
+in {
   options.settings.locale = {
     timeZone = lib.mkOption {
       type = lib.types.str;
@@ -16,8 +18,8 @@
   };
 
   config = {
-    time.timeZone = config.settings.locale.timeZone;
-    console.keyMap = config.settings.locale.keymap;
-    services.xserver.xkb.layout = config.settings.locale.keymap;
+    time.timeZone = cfg.timeZone;
+    console.keyMap = cfg.keymap;
+    services.xserver.xkb.layout = cfg.keymap;
   };
 }

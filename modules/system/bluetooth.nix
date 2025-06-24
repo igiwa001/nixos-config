@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.bluetooth;
+in {
   options.settings.bluetooth = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -17,9 +19,9 @@
 
   config = {
     hardware.bluetooth = {
-      enable = config.settings.bluetooth.enable;
-      powerOnBoot = config.settings.bluetooth.powerOnBoot;
+      enable = cfg.enable;
+      powerOnBoot = cfg.powerOnBoot;
     };
-    services.blueman.enable = config.settings.bluetooth.enable;
+    services.blueman.enable = cfg.enable;
   };
 }

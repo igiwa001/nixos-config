@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  defaults = config.settings.defaults;
+in {
   settings.hyprland.settings = {
     bindm = [
       "SUPER, mouse:272, movewindow"
@@ -60,7 +62,7 @@
         "ALTSHIFT, K, movecurrentworkspacetomonitor, u"
         "ALTSHIFT, L, movecurrentworkspacetomonitor, r"
       ]
-      ++ lib.optionals (config.settings.defaults.terminal != null) ["SUPER, T, exec, ${config.settings.defaults.terminal}"]
-      ++ lib.optionals (config.settings.defaults.browser != null) ["SUPER, B, exec, ${config.settings.defaults.browser}"];
+      ++ lib.optionals (defaults.terminal != null) ["SUPER, T, exec, ${defaults.terminal}"]
+      ++ lib.optionals (defaults.browser != null) ["SUPER, B, exec, ${defaults.browser}"];
   };
 }

@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.fonts;
+in {
   options.settings.fonts = {
     defaultFonts = lib.mkOption {
       type = lib.types.bool;
@@ -20,15 +22,13 @@
     };
   };
 
-  config = {
-    fonts = {
-      enableDefaultPackages = config.settings.fonts.defaultFonts;
-      fontconfig = {
-        enable = true;
-        hinting.enable = config.settings.fonts.hinting;
-      };
-
-      packages = config.settings.fonts.packages;
+  config.fonts = {
+    enableDefaultPackages = cfg.defaultFonts;
+    fontconfig = {
+      enable = true;
+      hinting.enable = cfg.hinting;
     };
+
+    packages = cfg.packages;
   };
 }

@@ -5,11 +5,9 @@
 }: let
   cfg = config.settings.hyprland;
 in {
-  options.settings.hyprland = {
-    autoreload = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+  options.settings.hyprland.autoreload = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
   };
 
   config.settings.hyprland.settings = {

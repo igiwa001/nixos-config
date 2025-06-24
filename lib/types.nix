@@ -47,4 +47,6 @@
     };
 in {
   inherit mergeableAnything;
+
+  hostName = lib.types.strMatching "^$|^[[:alnum:]]([[:alnum:]_-]{0,61}[[:alnum:]])?$";
 }
