@@ -3,15 +3,15 @@
   config,
   pkgs,
   ...
-}: {
-  options.settings.hyprland = {
-    swayosd = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+}: let
+  cfg = config.settings.hyprland;
+in {
+  options.settings.hyprland.swayosd = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
   };
 
-  config = let
+  config.settings = let
     # Speaker mute
     unmute = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0";
     toggle_mute = "swayosd-client --output-volume mute-toggle";
@@ -34,8 +34,16 @@
     # Night light (blue light filter)
     toggle_nightlight = "kill $(pidof hyprsunset) || hyprsunset -t 3500 &";
   in
-    lib.mkIf config.settings.hyprland.swayosd {
-      settings.hyprland.settings = {
+    lib.mkIf cfg.swayosd {
+      home-manager = {
+        services.swayosd.enable = true;
+        home.packages = [
+          pkgs.brightnessctl
+          pkgs.hyprsunset
+        ];
+      };
+
+      hyprland.settings = {
         bindel = [
           ", XF86AudioRaiseVolume, exec, ${unmute} && ${raise_volume}"
           ", XF86AudioLowerVolume, exec, ${unmute} && ${lower_volume}"
@@ -46,15 +54,6 @@
           ", XF86AudioMute, exec, ${toggle_mute}"
           ", XF86AudioMicMute, exec, ${toggle_mic} && ${update_mic_led}"
           ", XF86Favorites, exec, ${toggle_nightlight}"
-        ];
-      };
-
-      home-manager.users.${config.settings.user.username} = {
-        services.swayosd.enable = true;
-
-        home.packages = [
-          pkgs.brightnessctl
-          pkgs.hyprsunset
         ];
       };
     };

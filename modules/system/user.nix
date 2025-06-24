@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.user;
+in {
   options.settings.user = {
     username = lib.mkOption {
       type = lib.types.str;
@@ -16,21 +18,21 @@
 
     homeDirectory = lib.mkOption {
       type = lib.types.str;
-      default = "/home/${config.settings.user.username}";
+      default = "/home/${cfg.username}";
     };
   };
 
   config = {
-    users.users.${config.settings.user.username} = {
+    users.users.${cfg.username} = {
       isNormalUser = true;
       linger = true;
       initialPassword = "password";
-      extraGroups = ["wheel"] ++ config.settings.user.groups;
+      extraGroups = ["wheel"] ++ cfg.groups;
     };
 
-    home-manager.users.${config.settings.user.username}.home = {
-      username = config.settings.user.username;
-      homeDirectory = config.settings.user.homeDirectory;
+    settings.home-manager.home = {
+      username = cfg.username;
+      homeDirectory = cfg.homeDirectory;
     };
   };
 }

@@ -4,7 +4,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.settings.hyprland;
+in {
   imports = [
     ./swayosd.nix
     ./monitors.nix
@@ -30,11 +32,11 @@
     };
   };
 
-  config = lib.mkIf config.settings.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
       withUWSM = true;
-      xwayland.enable = config.settings.hyprland.xwayland;
+      xwayland.enable = cfg.xwayland;
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -48,11 +50,11 @@
       ];
     };
 
-    home-manager.users.${config.settings.user.username}.wayland.windowManager.hyprland = {
+    settings.home-manager.wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;
-      xwayland.enable = config.settings.hyprland.xwayland;
-      settings = config.settings.hyprland.settings;
+      xwayland.enable = cfg.xwayland;
+      settings = cfg.settings;
     };
   };
 }

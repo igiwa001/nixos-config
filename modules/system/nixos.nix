@@ -3,7 +3,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.settings.nixos;
+in {
   options.settings.nixos = {
     gc = lib.mkOption {
       type = lib.types.bool;
@@ -32,37 +34,30 @@
     nix = {
       channel.enable = false;
 
-      gc = lib.mkIf config.settings.nixos.gc {
+      gc = lib.mkIf cfg.gc {
         automatic = true;
         persistent = true;
         dates = "weekly";
         options = "--delete-older-than 1w";
       };
 
-      optimise = lib.mkIf config.settings.nixos.optimise {
+      optimise = lib.mkIf cfg.optimise {
         automatic = true;
         dates = ["weekly"];
       };
 
       settings = {
         experimental-features = ["flakes" "nix-command"];
-        auto-optimise-store = config.settings.nixos.optimise;
-        max-jobs = config.settings.nixos.cores;
+        auto-optimise-store = cfg.optimise;
+        max-jobs = cfg.cores;
       };
     };
 
-    nixpkgs.config = lib.mkIf config.settings.nixos.unfree {
+    nixpkgs.config = lib.mkIf cfg.unfree {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
 
     documentation.nixos.enable = false;
-
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-    };
-
-    home-manager.users.${config.settings.user.username}.programs.home-manager.enable = true;
   };
 }

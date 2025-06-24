@@ -2,7 +2,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  cfg = config.settings.hyprland;
+in {
   options.settings.hyprland = {
     autoreload = lib.mkOption {
       type = lib.types.bool;
@@ -43,7 +45,7 @@
     misc = {
       disable_splash_rendering = true;
       force_default_wallpaper = 0;
-      disable_autoreload = !config.settings.hyprland.autoreload;
+      disable_autoreload = !cfg.autoreload;
       focus_on_activate = true;
       initial_workspace_tracking = 2;
     };
@@ -53,7 +55,7 @@
     };
 
     xwayland = {
-      enabled = config.settings.hyprland.xwayland;
+      enabled = cfg.xwayland;
     };
 
     cursor = {

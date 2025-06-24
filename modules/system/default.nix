@@ -3,7 +3,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.settings.system;
+in {
   imports = [
     ./bootloader.nix
     ./nixos.nix
@@ -15,18 +17,16 @@
     ./keyring.nix
     ./fonts.nix
     ./defaults.nix
+    ./home-manager.nix
   ];
 
-  options.settings.system = {
-    stateVersion = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = null;
-    };
+  options.settings.system.stateVersion = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
   };
 
   config = {
-    system.stateVersion = with config.settings.system; lib.mkIf (stateVersion != null) stateVersion;
-    home-manager.users.${config.settings.user.username}.home.stateVersion = config.system.stateVersion;
+    system.stateVersion = lib.mkIf (cfg.stateVersion != null) cfg.stateVersion;
 
     environment.systemPackages = [
       pkgs.curl

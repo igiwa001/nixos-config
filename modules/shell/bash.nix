@@ -1,5 +1,5 @@
-{config, ...}: {
-  home-manager.users.${config.settings.user.username}.programs.bash = {
+{...}: {
+  settings.home-manager.programs.bash = {
     enable = true;
     initExtra = "[[ -f ~/.profile ]] && . ~/.profile";
   };

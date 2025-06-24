@@ -3,14 +3,16 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.settings.shell.git;
+in {
   options.settings.shell.git = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
 
-    username = lib.mkOption {
+    name = lib.mkOption {
       type = lib.types.str;
       default = "Igor Iwanicki";
     };
@@ -31,18 +33,18 @@
     };
   };
 
-  config.home-manager.users.${config.settings.user.username} = lib.mkIf config.settings.shell.git.enable {
+  config.settings.home-manager = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
       package = pkgs.gitFull;
-      userName = config.settings.shell.git.username;
-      userEmail = config.settings.shell.git.email;
+      userName = cfg.name;
+      userEmail = cfg.email;
       extraConfig.credential.helper = "libsecret";
     };
 
-    programs.lazygit.enable = config.settings.shell.git.lazygit;
-    home.shellAliases.lgit = lib.mkIf config.settings.shell.git.lazygit "lazygit";
+    programs.lazygit.enable = cfg.lazygit;
+    home.shellAliases.lgit = lib.mkIf cfg.lazygit "lazygit";
 
-    programs.gh.enable = config.settings.shell.git.gh-cli;
+    programs.gh.enable = cfg.gh-cli;
   };
 }
