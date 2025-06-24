@@ -2,16 +2,12 @@
   options.settings.defaults = {
     terminal = lib.mkOption {
       type = with lib.types; nullOr str;
-      default = null;
+      default = "kitty";
     };
 
     browser = lib.mkOption {
       type = with lib.types; nullOr str;
       default = null;
     };
-  };
-
-  config.settings.defaults = {
-    terminal = "kitty";
   };
 }
