@@ -13,6 +13,7 @@ in {
     ./settings.nix
     ./binds.nix
     ./waybar
+    ./rofi
   ];
 
   options.settings.hyprland = {
