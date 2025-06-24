@@ -29,6 +29,7 @@
   } @ inputs: let
     inherit (self) outputs;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    my-lib = import ./lib {lib = nixpkgs.lib;};
   in {
     # NixOS configuration
     nixosConfigurations = {
@@ -41,14 +42,14 @@
         modules = [./hosts/desktop/configuration.nix];
       };
       thinkpad-modular = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs my-lib;};
         modules = [
           ./hosts/thinkpad-modular/configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };
       desktop-modular = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs my-lib;};
         modules = [
           ./hosts/desktop-modular/configuration.nix
           home-manager.nixosModules.home-manager
