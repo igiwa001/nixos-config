@@ -18,6 +18,7 @@ in {
     ./fonts.nix
     ./defaults.nix
     ./home-manager.nix
+    ./wallpaper.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {
