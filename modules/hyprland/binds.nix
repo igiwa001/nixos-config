@@ -14,7 +14,6 @@ in {
     bind =
       [
         "SUPER, Q, killactive"
-        "SUPER, ESCAPE, exec, loginctl lock-session"
 
         "SUPER, F, fullscreen, 1"
         "SUPERSHIFT, F, fullscreen, 0"

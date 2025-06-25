@@ -16,6 +16,7 @@ in {
     ./rofi
     ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprlock
   ];
 
   options.settings.hyprland = {
