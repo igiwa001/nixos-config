@@ -14,6 +14,7 @@ in {
     ./binds.nix
     ./waybar
     ./rofi
+    ./hyprpaper.nix
   ];
 
   options.settings.hyprland = {
