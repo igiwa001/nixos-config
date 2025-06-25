@@ -15,6 +15,7 @@ in {
     ./waybar
     ./rofi
     ./hyprpaper.nix
+    ./hypridle.nix
   ];
 
   options.settings.hyprland = {
