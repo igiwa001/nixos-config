@@ -45,7 +45,6 @@ in {
       force_default_wallpaper = 0;
       disable_autoreload = !cfg.autoreload;
       focus_on_activate = true;
-      initial_workspace_tracking = 2;
     };
 
     binds = {
