@@ -13,6 +13,7 @@
     networking.hostname = "desktop-modular";
     nixos.cores = 24;
     hardware.wooting = true;
+    programs.lact.enable = true;
   };
 
   # AMDGPU crash workaround

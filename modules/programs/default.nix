@@ -9,5 +9,6 @@
     ./steam.nix
     ./slack.nix
     ./adb.nix
+    ./lact.nix
   ];
 }
