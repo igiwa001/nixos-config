@@ -7,7 +7,7 @@
 
     browser = lib.mkOption {
       type = with lib.types; nullOr str;
-      default = null;
+      default = "firefox";
     };
   };
 }

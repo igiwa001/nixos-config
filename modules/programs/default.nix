@@ -1,3 +1,7 @@
 {...}: {
-  imports = [./sddm.nix ./kitty.nix];
+  imports = [
+    ./sddm.nix
+    ./kitty.nix
+    ./firefox.nix
+  ];
 }
