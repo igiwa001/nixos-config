@@ -8,5 +8,6 @@
     ./noisetorch.nix
     ./steam.nix
     ./slack.nix
+    ./adb.nix
   ];
 }
