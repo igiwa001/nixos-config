@@ -5,5 +5,6 @@
     ./firefox.nix
     ./discord.nix
     ./spotify.nix
+    ./noisetorch.nix
   ];
 }
