@@ -6,5 +6,6 @@
     ./discord.nix
     ./spotify.nix
     ./noisetorch.nix
+    ./steam.nix
   ];
 }
