@@ -4,5 +4,6 @@
     ./kitty.nix
     ./firefox.nix
     ./discord.nix
+    ./spotify.nix
   ];
 }
