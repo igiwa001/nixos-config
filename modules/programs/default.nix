@@ -7,5 +7,6 @@
     ./spotify.nix
     ./noisetorch.nix
     ./steam.nix
+    ./slack.nix
   ];
 }
