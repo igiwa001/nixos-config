@@ -10,5 +10,6 @@
     ./slack.nix
     ./adb.nix
     ./lact.nix
+    ./libreoffice.nix
   ];
 }
