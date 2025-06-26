@@ -43,7 +43,11 @@ in {
       withUWSM = true;
       xwayland.enable = cfg.xwayland;
     };
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      GDK_SCALE = lib.mkIf cfg.xwayland "1.5";
+    };
 
     xdg.portal = {
       enable = true;

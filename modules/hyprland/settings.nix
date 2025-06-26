@@ -53,6 +53,7 @@ in {
 
     xwayland = {
       enabled = cfg.xwayland;
+      force_zero_scaling = true;
     };
 
     cursor = {
