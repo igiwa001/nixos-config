@@ -3,5 +3,6 @@
     ./sddm.nix
     ./kitty.nix
     ./firefox.nix
+    ./discord.nix
   ];
 }
