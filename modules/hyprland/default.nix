@@ -17,6 +17,7 @@ in {
     ./hyprpaper.nix
     ./hypridle.nix
     ./hyprlock
+    ./mako.nix
   ];
 
   options.settings.hyprland = {
