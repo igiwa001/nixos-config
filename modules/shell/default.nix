@@ -45,6 +45,7 @@ in {
       pkgs.google-cloud-sdk
       pkgs.pnpm
       pkgs.nodejs_22
+      pkgs.caligula
     ];
   };
 }
