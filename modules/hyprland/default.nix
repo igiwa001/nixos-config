@@ -18,6 +18,7 @@ in {
     ./hypridle.nix
     ./hyprlock
     ./mako.nix
+    ./clipse.nix
   ];
 
   options.settings.hyprland = {
