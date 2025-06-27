@@ -17,11 +17,17 @@ in {
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     hardware.bluetooth = {
-      enable = cfg.enable;
+      enable = true;
       powerOnBoot = cfg.powerOnBoot;
     };
-    services.blueman.enable = cfg.enable;
+    services.blueman.enable = true;
+
+    # Disable blueman on boot
+    settings.home-manager.xdg.configFile."autostart/blueman.desktop".text = ''
+      [Desktop Entry]
+      Hidden=true
+    '';
   };
 }
