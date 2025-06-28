@@ -12,6 +12,7 @@ in {
 
   config.settings.home-manager.programs.hyprlock.settings = lib.mkIf cfg.enable {
     auth.fingerprint.enabled = cfg.enableFprint;
+    animation = ["global, 1, 3, default"];
 
     background = {
       path = cfg.wallpaper;
@@ -42,10 +43,10 @@ in {
 
     shape = {
       size = "250, 60";
-      color = "rgba(255, 255, 255, .1)";
+      color = "rgba(100, 114, 125, 0.4)";
       rounding = -1;
       border_size = 0;
-      border_color = "rgba(255, 255, 255, 0)";
+      border_color = "rgba(0, 0, 0, 0)";
       position = "0, -100";
       halign = "center";
       valign = "center";
