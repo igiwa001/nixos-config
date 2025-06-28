@@ -1,0 +1,3 @@
+{...}: {
+  imports = [./notwaita-cursor.nix];
+}
