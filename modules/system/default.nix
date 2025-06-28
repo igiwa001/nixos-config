@@ -20,6 +20,7 @@ in {
     ./home-manager.nix
     ./wallpaper.nix
     ./theme.nix
+    ./cursor.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {
