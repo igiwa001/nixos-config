@@ -9,7 +9,7 @@ in {
   options.settings.hyprland.mako = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = config.settings.hyprland.enable;
     };
 
     max-history = lib.mkOption {

@@ -3,12 +3,12 @@
   config,
   ...
 }: let
-  cfg = config.settings.hyprland.hyprshot;
+  cfg = config.settings.hyprland.hyprpaper;
   wallpaper = config.settings.wallpaper;
 in {
-  options.settings.hyprland.hyprshot.enable = lib.mkOption {
+  options.settings.hyprland.hyprpaper.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = config.settings.hyprland.enable;
   };
 
   config.settings = lib.mkIf cfg.enable {

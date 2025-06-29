@@ -1,5 +1,11 @@
-{...}: {
-  settings.home-manager.programs.waybar.settings.mainBar = {
+{
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.settings.hyprland.waybar;
+in {
+  settings.home-manager.programs.waybar.settings.mainBar = lib.mkIf cfg.enable {
     layer = "top";
     position = "top";
     spacing = 10;

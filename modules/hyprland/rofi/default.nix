@@ -8,7 +8,7 @@
 in {
   options.settings.hyprland.rofi.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = config.settings.hyprland.enable;
   };
 
   config.settings = lib.mkIf cfg.enable {

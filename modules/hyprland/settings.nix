@@ -10,7 +10,7 @@ in {
     default = true;
   };
 
-  config.settings.hyprland.settings = {
+  config.settings.hyprland.settings = lib.mkIf cfg.enable {
     general = {
       gaps_in = 3;
       gaps_out = 8;

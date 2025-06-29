@@ -13,7 +13,7 @@ in {
   options.settings.hyprland.hyprlock = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = config.settings.hyprland.enable;
     };
 
     wallpaper = lib.mkOption {

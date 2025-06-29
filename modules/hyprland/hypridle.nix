@@ -7,7 +7,7 @@
 in {
   options.settings.hyprland.hypridle.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = config.settings.hyprland.enable;
   };
 
   config.settings.home-manager.services.hypridle = lib.mkIf cfg.enable {

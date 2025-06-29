@@ -4,8 +4,9 @@
   ...
 }: let
   defaults = config.settings.defaults;
+  cfg = config.settings.hyprland;
 in {
-  settings.hyprland.settings = {
+  settings.hyprland.settings = lib.mkIf cfg.enable {
     bindm = [
       "SUPER, mouse:272, movewindow"
       "SUPER, mouse:273, resizewindow"

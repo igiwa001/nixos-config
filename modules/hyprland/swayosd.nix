@@ -4,11 +4,11 @@
   pkgs,
   ...
 }: let
-  cfg = config.settings.hyprland;
+  cfg = config.settings.hyprland.swayosd;
 in {
-  options.settings.hyprland.swayosd = lib.mkOption {
+  options.settings.hyprland.swayosd.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = config.settings.hyprland.enable;
   };
 
   config.settings = let
@@ -34,7 +34,7 @@ in {
     # Night light (blue light filter)
     toggle_nightlight = "kill $(pidof hyprsunset) || hyprsunset -t 2000 &";
   in
-    lib.mkIf cfg.swayosd {
+    lib.mkIf cfg.enable {
       home-manager = {
         services.swayosd.enable = true;
         home.packages = [
