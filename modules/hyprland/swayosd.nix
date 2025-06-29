@@ -32,7 +32,7 @@ in {
     lower_brightness = "swayosd-client --brightness lower";
 
     # Night light (blue light filter)
-    toggle_nightlight = "kill $(pidof hyprsunset) || hyprsunset -t 3500 &";
+    toggle_nightlight = "kill $(pidof hyprsunset) || hyprsunset -t 2000 &";
   in
     lib.mkIf cfg.swayosd {
       home-manager = {
