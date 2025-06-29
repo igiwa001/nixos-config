@@ -2,18 +2,25 @@
   lib,
   config,
   ...
-}: let
+}:
+with builtins; let
   cfg = config.settings.wallpaper;
+  user = config.settings.user;
+  wallpapersDir = ../../wallpapers;
+  avaliableWallpapers = attrNames (readDir wallpapersDir);
+  wrapList = list: [(elemAt list (length list - 1))] ++ list ++ [(head list)];
+  wallpapers = concatStringsSep " " avaliableWallpapers;
+  wallpapersWrapped = concatStringsSep " " (wrapList avaliableWallpapers);
 in {
   options.settings.wallpaper = {
     default = lib.mkOption {
       type = lib.types.str;
-      default = "hyprland.png";
+      default = "";
     };
 
-    directory = lib.mkOption {
-      type = lib.types.str;
-      default = ".config/wallpapers";
+    path = lib.mkOption {
+      type = lib.types.path;
+      default = "${user.homeDirectory}/.config/wallpaper";
     };
 
     onChange = lib.mkOption {
@@ -22,104 +29,104 @@ in {
     };
   };
 
-  config.settings.home-manager = {
-    home = {
-      file.wallpapers = {
-        enable = true;
-        recursive = true;
-        source = ../../wallpapers;
-        target = cfg.directory;
-      };
-      sessionVariables.WALLPAPER = cfg.default;
-    };
+  config.systemd.user.services.wallpaper = {
+    enable = true;
+    wantedBy = ["default.target"];
+    script = ''
+      WALLPAPER=${cfg.default}
 
-    programs.bash.bashrcExtra = let
-      wallpaperList = ''
-        $(
-          find ~/${cfg.directory} \
-          -mindepth 1 -maxdepth 1 \
-          -type l -exec basename {} \; |\
+      if [ -z $WALLPAPER ]; then
+        WALLPAPER=$(
+          echo "${wallpapers}" |\
           sed "s/ /\n/g" |\
-          sort \
-        )'';
-      wallpaperListLooping = ''
-        $(
-          LIST=${wallpaperList}
-          set -- $LIST
-          echo ${"\${@: -1} $LIST $1 "}
-        )'';
-    in ''
-      wallpaper_list() {
-        WALLPAPERS=${wallpaperList}
-
-        for wallpaper in $WALLPAPERS
-        do
-          if [ $WALLPAPER = $wallpaper ]
-          then
-            PREFIX=" * "
-          else
-            PREFIX="   "
-          fi
-
-          echo "$PREFIX$wallpaper"
-        done
-      }
-
-      wallpaper_get() {
-        echo $WALLPAPER
-      }
-
-      wallpaper_set() {
-
-        if [ ! -f ~/${cfg.directory}/$1 ]; then
-          echo "Invalid wallpaper"
-          return 1
-        fi
-
-        export WALLPAPER=$1
-        ${cfg.onChange}
-      }
-
-      wallpaper_next() {
-        WALLPAPERS=${wallpaperListLooping}
-
-        NEXT=$( \
-          echo $WALLPAPERS |\
-          sed "s/ /\n/g" |\
-          grep $WALLPAPER -A 1 --no-group-separator |\
-          grep $WALLPAPER -v |\
-          head -n 1 \
+          shuf -n 1
         )
+      fi
 
-        wallpaper_set $NEXT
-      }
+      if [ 1 -ne $(
+        echo "${wallpapers}" |\
+        sed "s/ /\n/g" |\
+        grep -s ^$WALLPAPER$ -c
+      ) ]; then
+        echo "Invalid wallpaper: $WALLPAPER"
+        exit 1
+      fi
 
-      wallpaper_prev() {
-        WALLPAPERS=${wallpaperListLooping}
-
-        PREV=$( \
-          echo $WALLPAPERS |\
-          sed "s/ /\n/g" |\
-          grep $WALLPAPER -B 1 --no-group-separator |\
-          grep $WALLPAPER -v |\
-          head -n 1 \
-        )
-
-        wallpaper_set $PREV
-      }
-
-      wallpaper_rand() {
-        WALLPAPERS=${wallpaperList}
-
-        RAND=$( \
-          echo $WALLPAPERS |\
-          sed "s/ /\n/g" |\
-          grep -v $WALLPAPER |\
-          shuf -n 1 \
-        )
-
-        wallpaper_set $RAND
-      }
+      ln -sf ${wallpapersDir}/$WALLPAPER ${cfg.path}
     '';
   };
+
+  config.settings.home-manager.programs.bash.bashrcExtra = ''
+    wallpaper_get() {
+      basename $(readlink ${cfg.path})
+    }
+
+    wallpaper_set() {
+      if [ 1 -ne $(
+        echo "${wallpapers}" |\
+        sed "s/ /\n/g" |\
+        grep -s ^$1$ -c
+      ) ]; then
+        echo "Invalid wallpaper"
+        return 1
+      fi
+
+      ln -sf ${wallpapersDir}/$1 ${cfg.path}
+
+      ${cfg.onChange}
+    }
+
+    wallpaper_list() {
+      WALLPAPER=$(wallpaper_get)
+
+      for wallpaper in $(
+        echo "${wallpapers}" |\
+        sed "s/ /\n/g"
+      ); do
+        if [ $WALLPAPER = $wallpaper ]
+        then
+          PREFIX=" * "
+        else
+          PREFIX="   "
+        fi
+
+        echo "$PREFIX$wallpaper"
+      done
+    }
+
+    wallpaper_next() {
+      WALLPAPER=$(wallpaper_get)
+
+      wallpaper_set $(
+        echo "${wallpapersWrapped}" |\
+        sed "s/ /\n/g" |\
+        grep $WALLPAPER -A 1 --no-group-separator |\
+        grep $WALLPAPER -v |\
+        head -n 1 \
+      )
+    }
+
+    wallpaper_prev() {
+      WALLPAPER=$(wallpaper_get)
+
+      wallpaper_set $(
+        echo "${wallpapersWrapped}" |\
+        sed "s/ /\n/g" |\
+        grep $WALLPAPER -B 1 --no-group-separator |\
+        grep $WALLPAPER -v |\
+        head -n 1 \
+      )
+    }
+
+    wallpaper_rand() {
+      WALLPAPER=$(wallpaper_get)
+
+      wallpaper_set $(
+        echo "${wallpapers}" |\
+        sed "s/ /\n/g" |\
+        grep -v $WALLPAPER |\
+        shuf -n 1 \
+      )
+    }
+  '';
 }

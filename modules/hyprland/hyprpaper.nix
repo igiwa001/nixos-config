@@ -15,10 +15,10 @@ in {
     home-manager.services.hyprpaper = {
       enable = true;
       settings = {
-        preload = ["~/${wallpaper.directory}/${wallpaper.default}"];
-        wallpaper = [",~/${wallpaper.directory}/${wallpaper.default}"];
+        preload = [wallpaper.path];
+        wallpaper = [",${wallpaper.path}"];
       };
     };
-    wallpaper.onChange = "hyprctl hyprpaper reload ,~/${wallpaper.directory}/$WALLPAPER >/dev/null 2>&1";
+    wallpaper.onChange = "hyprctl hyprpaper reload ,${wallpaper.path} >/dev/null 2>&1";
   };
 }

@@ -4,6 +4,7 @@
   ...
 }: let
   cfg = config.settings.hyprland.hyprlock;
+  wallpaper = config.settings.wallpaper;
 in {
   options.settings.hyprland.hyprlock.enableFprint = lib.mkOption {
     type = lib.types.bool;
@@ -15,7 +16,7 @@ in {
     animation = ["global, 1, 3, default"];
 
     background = {
-      path = cfg.wallpaper;
+      path = wallpaper.path;
       blur_passes = 2;
       contrast = 0.8916;
       brightness = 0.8172;
