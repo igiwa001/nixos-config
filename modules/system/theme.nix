@@ -15,6 +15,8 @@
         package = pkgs.gnome-themes-extra;
       };
     };
+
+    dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
   environment.sessionVariables.GTK_THEME = "Adwaita-dark";
