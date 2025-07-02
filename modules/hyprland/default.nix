@@ -52,7 +52,7 @@ in {
 
     xdg.portal = {
       enable = true;
-      xdgOpenUsePortal = true;
+      config.common.hyprland = ["hyprland" "gtk"];
       extraPortals = [
         pkgs.xdg-desktop-portal
         pkgs.xdg-desktop-portal-hyprland
@@ -65,6 +65,8 @@ in {
       systemd.enable = false;
       xwayland.enable = cfg.xwayland;
       settings = cfg.settings;
+      package = null;
+      portalPackage = null;
     };
   };
 }
