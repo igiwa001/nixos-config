@@ -30,7 +30,8 @@
     inherit (self) outputs;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
     my-lib = import ./lib {lib = nixpkgs.lib;};
-    overlays = import ./overlays;
+    overlays = my-lib.overlays.importOverlays ./overlays;
+    overlayModule = {nixpkgs.overlays = overlays;};
   in {
     # NixOS configuration
     nixosConfigurations = {
@@ -47,7 +48,7 @@
         modules = [
           ./hosts/thinkpad-modular/configuration.nix
           home-manager.nixosModules.home-manager
-          overlays
+          overlayModule
         ];
       };
       desktop-modular = nixpkgs.lib.nixosSystem {
@@ -55,7 +56,7 @@
         modules = [
           ./hosts/desktop-modular/configuration.nix
           home-manager.nixosModules.home-manager
-          overlays
+          overlayModule
         ];
       };
     };
@@ -72,5 +73,7 @@
         modules = [./home/igorai-minimal.nix];
       };
     };
+
+    my-pkgs = import nixpkgs {inherit overlays;};
   };
 }

@@ -1,5 +1,4 @@
-{...} @ params: let
+{...} @ params: {
   types = import ./types.nix params;
-in {
-  inherit types;
+  overlays = import ./overlays.nix params;
 }
