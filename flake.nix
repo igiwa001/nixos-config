@@ -28,10 +28,11 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
     my-lib = import ./lib {lib = nixpkgs.lib;};
     overlays = my-lib.overlays.importOverlays ./overlays;
     overlayModule = {nixpkgs.overlays = overlays;};
+
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
     # NixOS configuration
     nixosConfigurations = {
@@ -74,6 +75,6 @@
       };
     };
 
-    my-pkgs = import nixpkgs {inherit overlays;};
+    legacyPackages = my-lib.forAllSystems (system: import nixpkgs {inherit system overlays;});
   };
 }
