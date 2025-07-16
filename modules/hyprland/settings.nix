@@ -14,7 +14,7 @@ in {
     general = {
       gaps_in = 3;
       gaps_out = 8;
-      "col.active_border" = "rgb(04c2de)";
+      "col.active_border" = "rgba(4,194,222,96)";
     };
 
     decoration = {
