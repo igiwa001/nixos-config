@@ -38,7 +38,7 @@ in {
         automatic = true;
         persistent = true;
         dates = "weekly";
-        options = "--delete-older-than 1w";
+        options = "--delete-older-than 7d";
       };
 
       optimise = lib.mkIf cfg.optimise {
