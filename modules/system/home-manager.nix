@@ -2,10 +2,13 @@
   lib,
   my-lib,
   config,
+  inputs,
   ...
 }: let
   cfg = config.settings;
 in {
+  imports = [inputs.home-manager.nixosModules.home-manager];
+
   options.settings.home-manager = lib.mkOption {
     type = my-lib.types.mergeableAnything;
     default = {};

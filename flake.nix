@@ -48,7 +48,6 @@
         specialArgs = {inherit inputs outputs my-lib;};
         modules = [
           ./hosts/thinkpad-modular/configuration.nix
-          home-manager.nixosModules.home-manager
           overlayModule
         ];
       };
@@ -56,7 +55,6 @@
         specialArgs = {inherit inputs outputs my-lib;};
         modules = [
           ./hosts/desktop-modular/configuration.nix
-          home-manager.nixosModules.home-manager
           overlayModule
         ];
       };
