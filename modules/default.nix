@@ -5,6 +5,6 @@
     ./programs
     ./hyprland
     ./shell
-    ./neovim.nix
+    ./neovim
   ];
 }
