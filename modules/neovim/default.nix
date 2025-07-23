@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.nvf.nixosModules.nvf
+    ./telescope.nix
   ];
 
   programs.nvf = {
@@ -12,7 +13,6 @@
     defaultEditor = true;
 
     settings.vim = {
-      extraPackages = [pkgs.ripgrep];
       enableLuaLoader = true;
       withNodeJs = false;
       withPython3 = false;
