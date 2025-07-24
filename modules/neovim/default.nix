@@ -1,13 +1,10 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nvf.nixosModules.nvf
     ./treesitter.nix
     ./telescope.nix
     ./languages.nix
+    ./conform.nix
   ];
 
   programs.nvf = {
