@@ -6,6 +6,7 @@
     ./languages.nix
     ./conform.nix
     ./lsp.nix
+    ./colorscheme.nix
   ];
 
   programs.nvf = {
