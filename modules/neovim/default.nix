@@ -7,6 +7,7 @@
     ./conform.nix
     ./lsp.nix
     ./colorscheme.nix
+    ./lualine.nix
   ];
 
   programs.nvf = {
