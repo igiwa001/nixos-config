@@ -7,13 +7,7 @@
   inherit (config.programs.nvf.settings.vim.formatter.conform-nvim.setupOpts) default_format_opts;
 in {
   programs.nvf.settings.vim = {
-    formatter.conform-nvim = {
-      enable = true;
-      setupOpts = {
-        format_after_save = null;
-        format_on_save = null;
-      };
-    };
+    formatter.conform-nvim.enable = true;
 
     keymaps = [
       {

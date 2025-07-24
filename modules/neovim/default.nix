@@ -5,6 +5,7 @@
     ./telescope.nix
     ./languages.nix
     ./conform.nix
+    ./lsp.nix
   ];
 
   programs.nvf = {
