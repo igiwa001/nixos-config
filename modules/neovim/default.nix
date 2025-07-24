@@ -5,7 +5,9 @@
 }: {
   imports = [
     inputs.nvf.nixosModules.nvf
+    ./treesitter.nix
     ./telescope.nix
+    ./languages.nix
   ];
 
   programs.nvf = {
@@ -28,6 +30,7 @@
         relativenumber = true;
         signcolumn = "auto";
         smartcase = true;
+        foldenable = false;
       };
 
       undoFile.enable = true;
