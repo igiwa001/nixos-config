@@ -1,12 +1,14 @@
 {
+  lib,
   config,
   inputs,
   ...
 }: let
   inherit (inputs.nvf.lib.nvim.lua) attrsetToLuaTable;
   inherit (config.programs.nvf.settings.vim.formatter.conform-nvim.setupOpts) default_format_opts;
+  cfg = config.settings.neovim;
 in {
-  programs.nvf.settings.vim = {
+  programs.nvf.settings.vim = lib.mkIf cfg.enable {
     formatter.conform-nvim.enable = true;
 
     keymaps = [

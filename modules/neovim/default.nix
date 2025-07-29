@@ -1,4 +1,11 @@
-{inputs, ...}: {
+{
+  lib,
+  config,
+  inputs,
+  ...
+}: let
+  cfg = config.settings.neovim;
+in {
   imports = [
     inputs.nvf.nixosModules.nvf
     ./treesitter.nix
@@ -10,7 +17,12 @@
     ./lualine.nix
   ];
 
-  programs.nvf = {
+  options.settings.neovim.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+  };
+
+  config.programs.nvf = lib.mkIf cfg.enable {
     enable = true;
     defaultEditor = true;
 

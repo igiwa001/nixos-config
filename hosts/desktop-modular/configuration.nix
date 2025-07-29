@@ -16,6 +16,10 @@
     programs.lact.enable = true;
   };
 
+  # TEMPORARY
+  settings.neovim.enable = false;
+  settings.nvim-old.enable = true;
+
   # AMDGPU crash workaround
   boot.kernelPackages = lib.mkForce (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_12.override {
     argsOverride = rec {
