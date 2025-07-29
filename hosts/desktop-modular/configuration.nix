@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules
@@ -15,6 +11,9 @@
     hardware.wooting = true;
     programs.lact.enable = true;
   };
+
+  # Enable all AMDGPU features except GFXOFF
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xffff7fff"];
 
   # TEMPORARY
   settings.neovim.enable = false;
