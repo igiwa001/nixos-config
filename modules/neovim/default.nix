@@ -15,6 +15,7 @@ in {
     ./lsp.nix
     ./colorscheme.nix
     ./lualine.nix
+    ./noice.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
