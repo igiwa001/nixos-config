@@ -18,6 +18,7 @@ in {
     ./noice.nix
     ./alpha.nix
     ./persistence.nix
+    ./visuals.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
