@@ -20,6 +20,7 @@ in {
     ./persistence.nix
     ./visuals.nix
     ./oil.nix
+    ./nvim-cmp.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
