@@ -19,6 +19,7 @@ in {
     ./alpha.nix
     ./persistence.nix
     ./visuals.nix
+    ./oil.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
@@ -47,6 +48,7 @@ in {
         signcolumn = "auto";
         smartcase = true;
         foldenable = false;
+        scrolloff = 3;
       };
 
       undoFile.enable = true;
