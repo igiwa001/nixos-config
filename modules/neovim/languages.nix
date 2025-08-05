@@ -12,9 +12,28 @@ in {
     enableExtraDiagnostics = true;
 
     nix.enable = true;
+    lua.enable = true;
+    html.enable = true;
+    tailwind.enable = true;
+
+    css = {
+      enable = true;
+      format.type = "prettierd";
+    };
+
     ts = {
       enable = true;
       format.type = "prettierd";
+    };
+
+    clang = {
+      enable = true;
+      cHeader = true;
+    };
+
+    markdown = {
+      enable = true;
+      extensions.markview-nvim.enable = true;
     };
   };
 }
