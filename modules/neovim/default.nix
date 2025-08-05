@@ -54,6 +54,8 @@ in {
         providers.wl-copy.enable = true;
         registers = "unnamedplus";
       };
+
+      autopairs.nvim-autopairs.enable = true;
     };
   };
 }
