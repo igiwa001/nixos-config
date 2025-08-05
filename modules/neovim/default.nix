@@ -17,6 +17,7 @@ in {
     ./lualine.nix
     ./noice.nix
     ./alpha.nix
+    ./persistence.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {

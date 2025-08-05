@@ -92,7 +92,7 @@ in {
           {
             text = "  Restore session";
             shortcut = "s";
-            command = "<CMD>lua vim.notify('Not implemented')<CR>";
+            command = "<CMD>lua require('persistence').load()<CR>";
           }
           {
             text = "󰅚  Quit";
