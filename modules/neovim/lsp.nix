@@ -8,5 +8,6 @@ in {
   programs.nvf.settings.vim.lsp = lib.mkIf cfg.enable {
     enable = true;
     formatOnSave = false;
+    mappings.format = null;
   };
 }

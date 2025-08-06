@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.settings.neovim;
@@ -18,12 +19,12 @@ in {
 
     css = {
       enable = true;
-      format.type = "prettierd";
+      format.package = pkgs.nodePackages.prettier;
     };
 
     ts = {
       enable = true;
-      format.type = "prettierd";
+      format.package = pkgs.nodePackages.prettier;
     };
 
     clang = {
