@@ -28,23 +28,17 @@
     inherit (self) outputs;
     my-lib = import ./lib {inherit (nixpkgs) lib;};
     overlays = my-lib.overlays.importOverlays ./overlays;
-    overlayModule = {nixpkgs.overlays = overlays;};
+    modules = [./modules {nixpkgs.overlays = overlays;}];
   in {
     # NixOS configuration
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs my-lib;};
-        modules = [
-          ./hosts/thinkpad/configuration.nix
-          overlayModule
-        ];
+        modules = modules ++ [./hosts/thinkpad/configuration.nix];
       };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs my-lib;};
-        modules = [
-          ./hosts/desktop/configuration.nix
-          overlayModule
-        ];
+        modules = modules ++ [./hosts/desktop/configuration.nix];
       };
     };
 

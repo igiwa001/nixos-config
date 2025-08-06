@@ -1,8 +1,5 @@
 {...}: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules
-  ];
+  imports = [./hardware-configuration.nix];
 
   settings = {
     system.stateVersion = "25.05";
