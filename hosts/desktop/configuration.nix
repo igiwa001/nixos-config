@@ -1,37 +1,17 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
-    # TODO: Hardware configuration
-    ../modules/hardware/wooting.nix
-    ../modules/system/systemd-boot.nix
-    ../modules/system/networking.nix
-    ../modules/system/bluetooth.nix
-    ../modules/system/common.nix
-    ../modules/system/locale.nix
-    ../modules/system/user.nix
-    ../modules/programs/pipewire.nix
-    ../modules/programs/keyring.nix
-    ../modules/programs/xdg-portal.nix
-    ../modules/programs/gdm.nix
-    ../modules/programs/hyprland.nix
-    ../modules/programs/podman.nix
-    ../modules/applications/steam.nix
-    ../modules/applications/thunar.nix
-    ../modules/applications/noisetorch.nix
-    # ../modules/hardware/radeon9070-xt.nix
-    ../modules/programs/lact.nix
-    ../modules/applications/adb.nix
+    ../../modules
   ];
 
-  # Correct scaling on xwayland apps
-  environment.sessionVariables.GDK_SCALE = "1.5";
+  settings = {
+    system.stateVersion = "24.11";
+    networking.hostname = "desktop";
+    nixos.cores = 24;
+    hardware.wooting = true;
+    programs.lact.enable = true;
+  };
 
-  networking.hostName = "desktop";
-  system.stateVersion = "24.11";
+  # Enable all AMDGPU features except GFXOFF
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xfffd7fff"];
 }
