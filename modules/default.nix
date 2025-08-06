@@ -6,6 +6,5 @@
     ./hyprland
     ./shell
     ./neovim
-    ./nvim-old.nix
   ];
 }
