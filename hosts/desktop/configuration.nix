@@ -1,5 +1,16 @@
-{...}: {
-  imports = [./hardware-configuration.nix];
+{inputs, ...}: let
+  inherit (inputs.nixos-hardware.nixosModules) common-pc;
+  inherit (inputs.nixos-hardware.nixosModules) common-pc-ssd;
+  inherit (inputs.nixos-hardware.nixosModules) common-cpu-amd-pstate;
+  inherit (inputs.nixos-hardware.nixosModules) common-gpu-amd;
+in {
+  imports = [
+    ./hardware-configuration.nix
+    common-pc
+    common-pc-ssd
+    common-cpu-amd-pstate
+    common-gpu-amd
+  ];
 
   settings = {
     system.stateVersion = "24.11";
