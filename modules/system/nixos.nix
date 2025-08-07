@@ -51,6 +51,18 @@ in {
         auto-optimise-store = cfg.optimise;
         max-jobs = cfg.cores;
       };
+
+      registry.pkgs = {
+        from = {
+          type = "indirect";
+          id = "pkgs";
+        };
+        to = {
+          type = "github";
+          owner = "igiwa001";
+          repo = "nixos-config";
+        };
+      };
     };
 
     nixpkgs.config.allowUnfree = cfg.unfree;
