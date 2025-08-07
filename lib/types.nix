@@ -32,7 +32,7 @@
             lambda = loc: defs: arg:
               mergeableAnything.merge (loc ++ ["<function body>"]) (
                 map (def: {
-                  file = def.file;
+                  inherit (def) file;
                   value = def.value arg;
                 })
                 defs

@@ -5,7 +5,7 @@
 }:
 with builtins; let
   cfg = config.settings.wallpaper;
-  user = config.settings.user;
+  inherit (config.settings) user;
   wallpapersDir = ../../wallpapers;
   avaliableWallpapers = attrNames (readDir wallpapersDir);
   wrapList = list: [(elemAt list (length list - 1))] ++ list ++ [(head list)];

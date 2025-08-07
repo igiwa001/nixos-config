@@ -31,7 +31,7 @@ in {
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = cfg.configurationLimit;
+        inherit (cfg) configurationLimit;
       };
     };
   };

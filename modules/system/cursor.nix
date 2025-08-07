@@ -34,10 +34,10 @@ in {
     x11.enable = true;
     hyprcursor = {
       enable = true;
-      size = cfg.size;
+      inherit (cfg) size;
     };
-    name = cfg.name;
-    package = cfg.package;
-    size = cfg.size;
+    inherit (cfg) name;
+    inherit (cfg) package;
+    inherit (cfg) size;
   };
 }

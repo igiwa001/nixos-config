@@ -29,6 +29,6 @@ in {
       hinting.enable = cfg.hinting;
     };
 
-    packages = cfg.packages;
+    inherit (cfg) packages;
   };
 }
