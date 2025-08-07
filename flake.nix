@@ -24,21 +24,25 @@
     inherit (nixpkgs) lib;
     my-lib = import ./lib {inherit lib;};
     overlays = import ./overlays;
-    modules = [./modules {nixpkgs.overlays = overlays;}];
+    sharedModules = [./modules {nixpkgs.overlays = overlays;}];
   in {
     # NixOS configuration
     nixosConfigurations = {
       thinkpad = lib.nixosSystem {
         specialArgs = {inherit inputs my-lib;};
-        modules = modules ++ [./hosts/thinkpad/configuration.nix];
+        modules = sharedModules ++ [./hosts/thinkpad/configuration.nix];
       };
       desktop = lib.nixosSystem {
         specialArgs = {inherit inputs my-lib;};
-        modules = modules ++ [./hosts/desktop/configuration.nix];
+        modules = sharedModules ++ [./hosts/desktop/configuration.nix];
       };
     };
 
     # Nixpkgs instance
-    legacyPackages = my-lib.forAllSystems (system: import nixpkgs {inherit system overlays;});
+    legacyPackages = my-lib.forAllSystems (system:
+      import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      });
   };
 }
