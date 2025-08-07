@@ -34,17 +34,18 @@ in {
   };
 
   config.settings.home-manager = lib.mkIf cfg.enable {
-    programs.git = {
-      enable = true;
-      package = pkgs.gitFull;
-      userName = cfg.name;
-      userEmail = cfg.email;
-      extraConfig.credential.helper = "libsecret";
+    programs = {
+      git = {
+        enable = true;
+        package = pkgs.gitFull;
+        userName = cfg.name;
+        userEmail = cfg.email;
+        extraConfig.credential.helper = "libsecret";
+      };
+      lazygit.enable = cfg.lazygit;
+      gh.enable = cfg.gh-cli;
     };
 
-    programs.lazygit.enable = cfg.lazygit;
     home.shellAliases.lgit = lib.mkIf cfg.lazygit "lazygit";
-
-    programs.gh.enable = cfg.gh-cli;
   };
 }

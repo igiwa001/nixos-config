@@ -35,6 +35,7 @@ in {
       pkgs.curl
       pkgs.zip
       pkgs.unzip
+      pkgs.vim
       pkgs.screen
       pkgs.nix-output-monitor
     ];
