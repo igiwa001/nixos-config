@@ -5,7 +5,7 @@
   ...
 }: let
   cfg = config.settings.hyprland.clipse;
-  defaults = config.settings.defaults;
+  inherit (config.settings) defaults;
 in {
   options.settings.hyprland.clipse.enable = lib.mkOption {
     type = lib.types.bool;

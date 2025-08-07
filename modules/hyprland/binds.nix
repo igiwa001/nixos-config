@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  defaults = config.settings.defaults;
+  inherit (config.settings) defaults;
   cfg = config.settings.hyprland;
 in {
   settings.hyprland.settings = lib.mkIf cfg.enable {

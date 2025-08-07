@@ -4,7 +4,7 @@
   ...
 }: let
   cfg = config.settings.hyprland.hyprpaper;
-  wallpaper = config.settings.wallpaper;
+  inherit (config.settings) wallpaper;
 in {
   options.settings.hyprland.hyprpaper.enable = lib.mkOption {
     type = lib.types.bool;

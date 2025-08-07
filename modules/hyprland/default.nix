@@ -64,7 +64,7 @@ in {
       enable = true;
       systemd.enable = false;
       xwayland.enable = cfg.xwayland;
-      settings = cfg.settings;
+      inherit (cfg) settings;
       package = null;
       portalPackage = null;
     };
