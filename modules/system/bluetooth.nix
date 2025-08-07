@@ -20,7 +20,7 @@ in {
   config = lib.mkIf cfg.enable {
     hardware.bluetooth = {
       enable = true;
-      powerOnBoot = cfg.powerOnBoot;
+      inherit (cfg) powerOnBoot;
     };
     services.blueman.enable = true;
 
