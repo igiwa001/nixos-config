@@ -20,28 +20,25 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    my-lib = import ./lib {inherit (nixpkgs) lib;};
-    overlays = my-lib.overlays.importOverlays ./overlays;
+  outputs = {nixpkgs, ...} @ inputs: let
+    inherit (nixpkgs) lib;
+    my-lib = import ./lib {inherit lib;};
+    overlays = import ./overlays;
     modules = [./modules {nixpkgs.overlays = overlays;}];
   in {
     # NixOS configuration
     nixosConfigurations = {
-      thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs my-lib;};
+      thinkpad = lib.nixosSystem {
+        specialArgs = {inherit inputs my-lib;};
         modules = modules ++ [./hosts/thinkpad/configuration.nix];
       };
-      desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs my-lib;};
+      desktop = lib.nixosSystem {
+        specialArgs = {inherit inputs my-lib;};
         modules = modules ++ [./hosts/desktop/configuration.nix];
       };
     };
 
+    # Nixpkgs instance
     legacyPackages = my-lib.forAllSystems (system: import nixpkgs {inherit system overlays;});
   };
 }

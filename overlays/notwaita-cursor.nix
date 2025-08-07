@@ -1,4 +1,4 @@
-(final: prev: {
+(_: prev: {
   notwaita-cursor = prev.stdenv.mkDerivation rec {
     pname = "notwaita-cursor";
     version = "v1.0.0-alpha1";

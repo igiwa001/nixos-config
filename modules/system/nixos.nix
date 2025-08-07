@@ -53,11 +53,7 @@ in {
       };
     };
 
-    nixpkgs.config = lib.mkIf cfg.unfree {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-
+    nixpkgs.config.allowUnfree = cfg.unfree;
     documentation.nixos.enable = false;
   };
 }
