@@ -4,7 +4,6 @@ _: {
     ./hardware
     ./programs
     ./hyprland
-    ./shell
     ./neovim
   ];
 }

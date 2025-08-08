@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.settings.shell.nh;
+  cfg = config.settings.programs.nh;
 in {
-  options.settings.shell.nh.enable = lib.mkOption {
+  options.settings.programs.nh.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
   };

@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.settings.shell.zoxide;
+  cfg = config.settings.programs.zoxide;
 in {
-  options.settings.shell.zoxide.enable = lib.mkOption {
+  options.settings.programs.zoxide.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
   };

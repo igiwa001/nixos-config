@@ -21,6 +21,7 @@ in {
     ./wallpaper.nix
     ./theme.nix
     ./cursor.nix
+    ./bash.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {

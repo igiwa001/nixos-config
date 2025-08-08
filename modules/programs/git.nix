@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.settings.shell.git;
+  cfg = config.settings.programs.git;
 in {
-  options.settings.shell.git = {
+  options.settings.programs.git = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

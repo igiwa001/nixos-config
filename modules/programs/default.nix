@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./sddm.nix
     ./kitty.nix
@@ -11,5 +11,15 @@
     ./adb.nix
     ./lact.nix
     ./libreoffice.nix
+    ./git.nix
+    ./eza.nix
+    ./nh.nix
+    ./zoxide.nix
+  ];
+
+  settings.home-manager.home.packages = [
+    pkgs.google-cloud-sdk
+    pkgs.pnpm
+    pkgs.nodejs_22
   ];
 }

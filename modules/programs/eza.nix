@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.settings.shell.eza;
+  cfg = config.settings.programs.eza;
 in {
-  options.settings.shell.eza.enable = lib.mkOption {
+  options.settings.programs.eza.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
   };
