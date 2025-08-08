@@ -36,8 +36,6 @@ in {
       enable = true;
       inherit (cfg) size;
     };
-    inherit (cfg) name;
-    inherit (cfg) package;
-    inherit (cfg) size;
+    inherit (cfg) name package size;
   };
 }

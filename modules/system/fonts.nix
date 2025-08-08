@@ -23,12 +23,11 @@ in {
   };
 
   config.fonts = {
+    inherit (cfg) packages;
     enableDefaultPackages = cfg.defaultFonts;
     fontconfig = {
       enable = true;
       hinting.enable = cfg.hinting;
     };
-
-    inherit (cfg) packages;
   };
 }

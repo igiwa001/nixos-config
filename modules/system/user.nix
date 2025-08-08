@@ -31,8 +31,7 @@ in {
     };
 
     settings.home-manager.home = {
-      inherit (cfg) username;
-      inherit (cfg) homeDirectory;
+      inherit (cfg) username homeDirectory;
     };
   };
 }

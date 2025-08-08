@@ -32,9 +32,12 @@ in {
     home-manager.services.mako = {
       enable = true;
       settings = {
-        inherit (cfg) max-history;
-        inherit (cfg) max-visible;
-        inherit (cfg) default-timeout;
+        inherit
+          (cfg)
+          max-history
+          max-visible
+          default-timeout
+          ;
 
         font = "FiraMono Nerd Font 11";
         background-color = "#24273acc";
