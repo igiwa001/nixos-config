@@ -15,6 +15,7 @@
     ./eza.nix
     ./nh.nix
     ./zoxide.nix
+    ./btop.nix
   ];
 
   settings.home-manager.home.packages = [
