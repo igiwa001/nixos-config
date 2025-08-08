@@ -19,6 +19,7 @@ in {
     ./hyprlock
     ./mako.nix
     ./clipse.nix
+    ./hyprshot.nix
   ];
 
   options.settings.hyprland = {
