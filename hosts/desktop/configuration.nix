@@ -16,7 +16,7 @@ in {
     system.stateVersion = "24.11";
     networking.hostname = "desktop";
     nixos.cores = 24;
-    hardware.wooting = true;
+    hardware.wooting.enable = true;
     programs.lact.enable = true;
   };
 
