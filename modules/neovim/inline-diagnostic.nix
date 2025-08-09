@@ -4,9 +4,14 @@
   pkgs,
   ...
 }: let
-  cfg = config.settings.neovim;
+  cfg = config.settings.neovim.diagnostics;
 in {
-  programs.nvf.settings.vim.lazy.plugins."tiny-inline-diagnostic.nvim" = lib.mkIf cfg.enable {
+  options.settings.neovim.diagnostics.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = config.settings.neovim.enable;
+  };
+
+  config.programs.nvf.settings.vim.lazy.plugins."tiny-inline-diagnostic.nvim" = lib.mkIf cfg.enable {
     package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim;
     setupModule = "tiny-inline-diagnostic";
     setupOpts = {

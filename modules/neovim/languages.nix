@@ -5,34 +5,77 @@
   ...
 }: let
   cfg = config.settings.neovim;
+  lang = cfg.languages;
 in {
-  programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
-    enableDAP = true;
-    enableFormat = true;
-    enableTreesitter = true;
-    enableExtraDiagnostics = true;
+  options.settings.neovim.languages = {
+    nix = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
 
-    nix.enable = true;
-    lua.enable = true;
-    html.enable = true;
-    tailwind.enable = true;
+    lua = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
 
-    css = {
+    html = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    css = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    tailwind = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    typescript = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    c = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    markdown = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+  };
+
+  config.programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
+    enableDAP = lib.mkIf cfg.lsp.enable true;
+    enableFormat = lib.mkIf cfg.conform.enable true;
+    enableTreesitter = lib.mkIf cfg.treesitter.enable true;
+    enableExtraDiagnostics = lib.mkIf cfg.diagnostics.enable true;
+
+    nix.enable = lib.mkIf lang.nix true;
+    lua.enable = lib.mkIf lang.lua true;
+    html.enable = lib.mkIf lang.html true;
+    tailwind.enable = lib.mkIf lang.tailwind true;
+
+    css = lib.mkIf lang.css {
       enable = true;
       format.package = pkgs.nodePackages.prettier;
     };
 
-    ts = {
+    ts = lib.mkIf lang.typescript {
       enable = true;
       format.package = pkgs.nodePackages.prettier;
     };
 
-    clang = {
+    clang = lib.mkIf lang.c {
       enable = true;
       cHeader = true;
     };
 
-    markdown = {
+    markdown = lib.mkIf lang.markdown {
       enable = true;
       extensions.markview-nvim.enable = true;
     };

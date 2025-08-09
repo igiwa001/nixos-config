@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib.generators) mkLuaInline;
-  cfg = config.settings.neovim;
+  cfg = config.settings.neovim.alpha;
   mkButton = {
     command,
     shortcut,
@@ -37,7 +37,12 @@
     };
   };
 in {
-  programs.nvf.settings.vim.dashboard.alpha = lib.mkIf cfg.enable {
+  options.settings.neovim.alpha.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = config.settings.neovim.enable;
+  };
+
+  config.programs.nvf.settings.vim.dashboard.alpha = lib.mkIf cfg.enable {
     enable = true;
     theme = null;
     layout = [

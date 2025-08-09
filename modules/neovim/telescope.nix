@@ -4,9 +4,14 @@
   config,
   ...
 }: let
-  cfg = config.settings.neovim;
+  cfg = config.settings.neovim.telescope;
 in {
-  programs.nvf.settings.vim = lib.mkIf cfg.enable {
+  options.settings.neovim.telescope.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = config.settings.neovim.enable;
+  };
+
+  config.programs.nvf.settings.vim = lib.mkIf cfg.enable {
     telescope = {
       enable = true;
       setupOpts.defaults = {
