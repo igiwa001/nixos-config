@@ -14,14 +14,12 @@ in {
     ./locale.nix
     ./bluetooth.nix
     ./pipewire.nix
-    ./keyring.nix
     ./fonts.nix
     ./defaults.nix
     ./home-manager.nix
     ./wallpaper.nix
     ./theme.nix
     ./cursor.nix
-    ./bash.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {
@@ -31,6 +29,13 @@ in {
 
   config = {
     system.stateVersion = lib.mkIf (cfg.stateVersion != null) cfg.stateVersion;
+
+    settings.home-manager.programs.bash = {
+      enable = true;
+      initExtra = "[[ -f ~/.profile ]] && . ~/.profile";
+    };
+
+    services.gnome.gnome-keyring.enable = true;
 
     environment.systemPackages = [
       pkgs.curl
