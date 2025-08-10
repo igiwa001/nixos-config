@@ -22,7 +22,7 @@ in {
     ./oil.nix
     ./nvim-cmp.nix
     ./inline-diagnostic.nix
-    ./git
+    ./git.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
