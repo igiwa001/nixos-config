@@ -3,6 +3,7 @@
   config,
   ...
 }: let
+  inherit (lib.generators) mkLuaInline;
   cfg = config.settings.neovim.theme;
 in {
   options.settings.neovim.theme = {
@@ -22,7 +23,22 @@ in {
     };
   };
 
-  config.programs.nvf.settings.vim.theme = lib.mkIf cfg.enable {
-    inherit (cfg) enable name transparent;
+  config.programs.nvf.settings.vim = lib.mkIf cfg.enable {
+    theme = {
+      inherit (cfg) enable name transparent;
+    };
+
+    autocmds = [
+      {
+        desc = "Link Winbar highlight to Normal";
+        event = ["VimEnter" "ColorScheme"];
+        callback = mkLuaInline ''
+          function()
+            vim.api.nvim_set_hl(0, "WinBar", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "WinBarNC", { link = "Normal" })
+          end
+        '';
+      }
+    ];
   };
 }
