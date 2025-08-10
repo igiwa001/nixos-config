@@ -17,12 +17,16 @@ in {
     };
   };
 
-  config.services = lib.mkIf cfg.enable {
-    displayManager.sddm = {
-      enable = true;
-      enableHidpi = true;
-      wayland.enable = cfg.wayland;
+  config = lib.mkIf cfg.enable {
+    services = {
+      displayManager.sddm = {
+        enable = true;
+        enableHidpi = true;
+        wayland.enable = cfg.wayland;
+      };
+      xserver.enable = lib.mkIf (!cfg.wayland) true;
     };
-    xserver.enable = lib.mkIf (!cfg.wayland) true;
+
+    security.pam.services.sddm.enableGnomeKeyring = true;
   };
 }
