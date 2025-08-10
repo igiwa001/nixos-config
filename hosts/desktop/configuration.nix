@@ -20,6 +20,7 @@ in {
     networking.hostname = "desktop";
     nixos.cores = 24;
     hardware.wooting.enable = true;
+    hardware.razer-nari.enable = true;
     programs.lact.enable = true;
   };
 

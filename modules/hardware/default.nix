@@ -1,3 +1,7 @@
 _: {
-  imports = [./wooting.nix ./graphics.nix];
+  imports = [
+    ./wooting.nix
+    ./graphics.nix
+    ./razer-nari.nix
+  ];
 }
