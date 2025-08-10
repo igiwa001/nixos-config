@@ -20,6 +20,7 @@ in {
     ./mako.nix
     ./clipse.nix
     ./hyprshot.nix
+    ./playerctl.nix
   ];
 
   options.settings.hyprland = {
