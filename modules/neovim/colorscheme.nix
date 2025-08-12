@@ -17,6 +17,11 @@ in {
       default = "onedark";
     };
 
+    style = lib.mkOption {
+      type = lib.types.str;
+      default = "dark";
+    };
+
     transparent = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -25,7 +30,7 @@ in {
 
   config.programs.nvf.settings.vim = lib.mkIf cfg.enable {
     theme = {
-      inherit (cfg) enable name transparent;
+      inherit (cfg) enable name style transparent;
     };
 
     autocmds = [
