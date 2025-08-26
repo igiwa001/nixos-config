@@ -7,18 +7,15 @@
 in {
   options.settings.programs.podman.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
   };
 
-  config = lib.mkIf cfg.enable {
-    virtualisation = {
-      containers.enable = true;
-      podman = {
-        enable = true;
-        dockerCompat = true;
-        defaultNetwork.settings.dns_enabled = true;
-      };
+  config.virtualisation = lib.mkIf cfg.enable {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
-    settings.user.groups = ["podman"];
   };
 }
