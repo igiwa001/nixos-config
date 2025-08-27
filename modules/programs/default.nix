@@ -17,6 +17,7 @@
     ./zoxide.nix
     ./btop.nix
     ./podman.nix
+    ./minecraft.nix
   ];
 
   settings.home-manager.home.packages = [

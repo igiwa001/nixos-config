@@ -22,6 +22,7 @@ in {
     hardware.wooting.enable = true;
     hardware.razer-nari.enable = true;
     programs.lact.enable = true;
+    programs.minecraft.enable = true;
   };
 
   # Enable all AMDGPU features except GFXOFF
