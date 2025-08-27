@@ -5,5 +5,6 @@ _: {
     ./programs
     ./hyprland
     ./neovim
+    ./services
   ];
 }

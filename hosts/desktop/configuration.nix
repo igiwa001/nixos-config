@@ -23,6 +23,7 @@ in {
     hardware.razer-nari.enable = true;
     programs.lact.enable = true;
     programs.minecraft.enable = true;
+    services.minecraft.enable = true;
   };
 
   # Enable all AMDGPU features except GFXOFF
