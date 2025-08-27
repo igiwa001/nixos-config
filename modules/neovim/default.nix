@@ -23,6 +23,7 @@ in {
     ./nvim-cmp.nix
     ./inline-diagnostic.nix
     ./git.nix
+    ./mozart2.nix
   ];
 
   options.settings.neovim.enable = lib.mkOption {
