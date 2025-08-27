@@ -21,6 +21,8 @@ in {
       default = {
         difficulty = "hard";
         spawn-protection = 0;
+        enable-rcon = true;
+        "rcon.password" = "password";
       };
     };
   };
