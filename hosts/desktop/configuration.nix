@@ -26,6 +26,6 @@ in {
     services.minecraft.enable = true;
   };
 
-  # Enable all AMDGPU features except GFXOFF
-  boot.kernelParams = ["amdgpu.ppfeaturemask=0xfffd7fff"];
+  # Enable all AMDGPU features
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
 }
