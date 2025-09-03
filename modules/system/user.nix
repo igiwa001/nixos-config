@@ -27,7 +27,7 @@ in {
       isNormalUser = true;
       linger = true;
       initialPassword = "password";
-      extraGroups = ["wheel"] ++ cfg.groups;
+      extraGroups = ["wheel" "video"] ++ cfg.groups;
     };
 
     settings.home-manager.home = {

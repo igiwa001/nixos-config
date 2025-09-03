@@ -21,11 +21,11 @@ in {
     nixos.cores = 24;
     hardware.wooting.enable = true;
     hardware.razer-nari.enable = true;
-    programs.lact.enable = true;
     programs.minecraft.enable = true;
     services.minecraft.enable = true;
   };
-
-  # Enable all AMDGPU features
-  boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xfff73fff"];
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0 power_save_controller=N
+  '';
 }
