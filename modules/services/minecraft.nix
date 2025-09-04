@@ -21,6 +21,7 @@ in {
       default = {
         difficulty = "hard";
         spawn-protection = 0;
+        view-distance = 32;
         enable-rcon = true;
         "rcon.password" = "password";
       };
