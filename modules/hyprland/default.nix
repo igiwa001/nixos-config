@@ -38,6 +38,11 @@ in {
       type = my-lib.types.mergeableAnything;
       default = {};
     };
+
+    wallpaper = lib.mkOption {
+      type = lib.types.path;
+      default = "${./wallpaper.jpg}";
+    };
   };
 
   config = lib.mkIf cfg.enable {

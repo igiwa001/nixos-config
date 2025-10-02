@@ -4,21 +4,18 @@
   ...
 }: let
   cfg = config.settings.hyprland.hyprpaper;
-  inherit (config.settings) wallpaper;
+  inherit (config.settings.hyprland) wallpaper;
 in {
   options.settings.hyprland.hyprpaper.enable = lib.mkOption {
     type = lib.types.bool;
     default = config.settings.hyprland.enable;
   };
 
-  config.settings = lib.mkIf cfg.enable {
-    home-manager.services.hyprpaper = {
-      enable = true;
-      settings = {
-        preload = [wallpaper.path];
-        wallpaper = [",${wallpaper.path}"];
-      };
+  config.settings.home-manager.services.hyprpaper = lib.mkIf cfg.enable {
+    enable = true;
+    settings = {
+      preload = [wallpaper];
+      wallpaper = [",${wallpaper}"];
     };
-    wallpaper.onChange = "hyprctl hyprpaper reload ,${wallpaper.path} >/dev/null 2>&1";
   };
 }

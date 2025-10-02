@@ -17,7 +17,6 @@ in {
     ./fonts.nix
     ./defaults.nix
     ./home-manager.nix
-    ./wallpaper.nix
     ./theme.nix
     ./cursor.nix
   ];
