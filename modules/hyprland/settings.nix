@@ -41,6 +41,7 @@ in {
     };
 
     misc = {
+      disable_hyprland_logo = cfg.hyprpaper.enable;
       disable_splash_rendering = true;
       force_default_wallpaper = 0;
       disable_autoreload = !cfg.autoreload;
