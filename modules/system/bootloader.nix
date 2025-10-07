@@ -15,6 +15,11 @@ in {
       type = lib.types.ints.positive;
       default = 3;
     };
+
+    plymouth = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.boot = {
@@ -34,5 +39,8 @@ in {
         inherit (cfg) configurationLimit;
       };
     };
+
+    plymouth.enable = cfg.plymouth;
+    kernelParams = lib.optional cfg.plymouth "quiet";
   };
 }
