@@ -47,6 +47,11 @@ in {
       type = lib.types.bool;
       default = true;
     };
+
+    scala = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
@@ -59,6 +64,7 @@ in {
     lua.enable = lib.mkIf lang.lua true;
     html.enable = lib.mkIf lang.html true;
     tailwind.enable = lib.mkIf lang.tailwind true;
+    scala.enable = lib.mkIf lang.scala true;
 
     css = lib.mkIf lang.css {
       enable = true;
