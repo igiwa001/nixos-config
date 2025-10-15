@@ -36,6 +36,10 @@
         specialArgs = {inherit inputs my-lib;};
         modules = sharedModules ++ [./hosts/desktop/configuration.nix];
       };
+      server = lib.nixosSystem {
+        specialArgs = {inherit inputs my-lib;};
+        modules = sharedModules ++ [./hosts/server/configuration.nix];
+      };
     };
 
     # Nixpkgs instance

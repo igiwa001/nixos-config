@@ -36,6 +36,8 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
 
+    programs.dconf.enable = true;
+
     environment.systemPackages = [
       pkgs.curl
       pkgs.zip
