@@ -19,6 +19,8 @@ in {
       loader = "grub";
       grub.device = "/dev/sda";
     };
+    services.sshd.enable = true;
+
     hyprland.enable = false;
     programs = {
       discord.enable = false;
