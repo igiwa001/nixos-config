@@ -31,3 +31,8 @@ jobs:
       uses: ./.github/actions/nixos-rebuild
       with:
         hostname: "thinkpad"
+
+    - name: Build server
+      uses: ./.github/actions/nixos-rebuild
+      with:
+        hostname: "server"
