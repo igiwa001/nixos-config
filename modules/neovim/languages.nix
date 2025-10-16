@@ -52,6 +52,11 @@ in {
       type = lib.types.bool;
       default = true;
     };
+
+    python = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
@@ -65,6 +70,7 @@ in {
     html.enable = lib.mkIf lang.html true;
     tailwind.enable = lib.mkIf lang.tailwind true;
     scala.enable = lib.mkIf lang.scala true;
+    python.enable = lib.mkIf lang.python true;
 
     css = lib.mkIf lang.css {
       enable = true;
