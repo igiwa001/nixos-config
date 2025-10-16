@@ -40,7 +40,10 @@ in {
         package = pkgs.gitFull;
         userName = cfg.name;
         userEmail = cfg.email;
-        extraConfig.credential.helper = "libsecret";
+        extraConfig = {
+          credential.helper = "libsecret";
+          init.defaultBranch = "main";
+        };
       };
       lazygit.enable = cfg.lazygit;
       gh.enable = cfg.gh-cli;
