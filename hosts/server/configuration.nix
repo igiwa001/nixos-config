@@ -7,6 +7,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./fancontrol.nix
     common-pc
     common-cpu-intel-cpu-only
   ];
