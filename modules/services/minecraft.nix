@@ -31,6 +31,10 @@ in {
       eula = true;
       openFirewall = true;
       inherit (cfg) servers;
+      managementSystem = {
+        tmux.enable = false;
+        systemd-socket.enable = true;
+      };
     };
   };
 }
