@@ -1,38 +1,36 @@
 {
+  inputs,
   lib,
+  my-lib,
   config,
   ...
 }: let
+  inherit (inputs) nix-minecraft;
   cfg = config.settings.services.minecraft;
 in {
+  imports = [
+    nix-minecraft.nixosModules.minecraft-servers
+  ];
+
   options.settings.services.minecraft = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
 
-    jvmOpts = lib.mkOption {
-      type = lib.types.separatedString " ";
-      default = "-Xmx6G -Xms6G";
-    };
-
-    serverProperties = lib.mkOption {
-      type = with lib.types; attrsOf (oneOf [bool int str]);
-      default = {
-        difficulty = "hard";
-        spawn-protection = 0;
-        view-distance = 32;
-        enable-rcon = true;
-        "rcon.password" = "password";
-      };
+    servers = lib.mkOption {
+      type = my-lib.types.mergeableAnything;
+      default = {};
     };
   };
 
-  config.services.minecraft-server = lib.mkIf cfg.enable {
-    enable = true;
-    eula = true;
-    openFirewall = true;
-    declarative = cfg.serverProperties != {};
-    inherit (cfg) jvmOpts serverProperties;
+  config = lib.mkIf cfg.enable {
+    nixpkgs.overlays = [nix-minecraft.overlay];
+    services.minecraft-servers = {
+      enable = true;
+      eula = true;
+      openFirewall = true;
+      inherit (cfg) servers;
+    };
   };
 }

@@ -9,6 +9,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./minecraft-server.nix
     common-pc
     common-pc-ssd
     common-cpu-amd-pstate

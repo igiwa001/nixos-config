@@ -18,12 +18,22 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Minecraft
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    nixpkgs,
+    nix-minecraft,
+    ...
+  } @ inputs: let
     inherit (nixpkgs) lib;
     my-lib = import ./lib {inherit lib;};
-    overlays = import ./overlays;
+    overlays = (import ./overlays) ++ [nix-minecraft.overlay];
     sharedModules = [./modules {nixpkgs.overlays = overlays;}];
   in {
     # NixOS configuration
