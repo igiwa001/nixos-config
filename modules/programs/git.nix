@@ -37,6 +37,7 @@ in {
     programs = {
       git = {
         enable = true;
+        lfs.enable = true;
         package = pkgs.gitFull;
         userName = cfg.name;
         userEmail = cfg.email;
