@@ -1,4 +1,8 @@
 {pkgs, ...}: let
+  players = {
+    Dgtg = "8737ed5c-6d32-42d6-a11c-229303c7db6c";
+    EzT_ = "cd3354a7-0661-435c-9944-b0cc2235685c";
+  };
   mods = {
     Servux = pkgs.fetchurl {
       url = "https://cdn.modrinth.com/data/zQhsx8KF/versions/1aOMm00f/servux-fabric-1.21.10-rc1-0.8.1.jar";
@@ -41,12 +45,15 @@ in {
         enable = true;
         autoStart = true;
         package = pkgs.minecraftServers.fabric-1_21_9;
-        jvmOpts = "-Xms4G -Xmx6G";
+        jvmOpts = "-Xms1G -Xmx2G";
+        operators = players;
+        whitelist = players;
 
         serverProperties = {
           difficulty = "hard";
           spawn-protection = 0;
           view-distance = 32;
+          white-list = true;
         };
 
         symlinks.mods =
@@ -59,11 +66,14 @@ in {
         enable = true;
         autoStart = true;
         package = pkgs.minecraftServers.fabric-1_21_9;
-        jvmOpts = "-Xms2G -Xmx3G";
+        jvmOpts = "-Xms1G -Xmx2G";
+        operators = players;
+        whitelist = players;
 
         serverProperties = {
           spawn-protection = 0;
           server-port = 25566;
+          white-list = true;
         };
 
         symlinks.mods =
