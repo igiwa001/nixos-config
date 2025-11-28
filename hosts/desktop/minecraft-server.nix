@@ -36,6 +36,14 @@
       url = "https://cdn.modrinth.com/data/N6n5dqoA/versions/TibxxJrx/Axiom-5.1.1-for-MC1.21.10.jar";
       sha512 = "7175d1c7ef4f5764a070e8d46076fc24d9005469a096d0a21a04ea45f96d7d47a3a1309a9627af3ef73b7584c1bbc56bc584a196914ba684762e4970609d65c0";
     };
+    Carpet = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/TQTTVgYE/versions/jcWK0Ziq/fabric-carpet-1.21.9-1.4.185%2Bv250930.jar";
+      sha512 = "7130f2b2ee8fda2c012f188191a7d05d9671497d442b57955aeeaaed2d1b14500aa19da0a7bf0d2ba0cc357f8dbef8a9084c4197f829b05c0e239a93ac8fc621";
+    };
+    CarpetTIS = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/jE0SjGuf/versions/Kr6P8gVe/carpet-tis-addition-v1.71.1-mc1.21.10.jar";
+      sha512 = "ca7abdee0d25ba542c8b1c66eb02f528ad66c65917f808c10d07eef7a493e0ee4ee1d5ea879d3a40a6e78036b0f97edaa9eb7c23eaf252d4dda01e919944500d";
+    };
   };
 in {
   settings.services.minecraft = {
