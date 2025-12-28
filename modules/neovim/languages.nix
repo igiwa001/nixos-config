@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.neovim;
@@ -71,16 +70,8 @@ in {
     tailwind.enable = lib.mkIf lang.tailwind true;
     scala.enable = lib.mkIf lang.scala true;
     python.enable = lib.mkIf lang.python true;
-
-    css = lib.mkIf lang.css {
-      enable = true;
-      format.package = pkgs.nodePackages.prettier;
-    };
-
-    ts = lib.mkIf lang.typescript {
-      enable = true;
-      format.package = pkgs.nodePackages.prettier;
-    };
+    css.enable = lib.mkIf lang.css true;
+    ts.enable = lib.mkIf lang.typescript true;
 
     clang = lib.mkIf lang.c {
       enable = true;

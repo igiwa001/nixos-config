@@ -14,7 +14,6 @@ in {
   config.settings = lib.mkIf cfg.enable {
     home-manager.programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
       theme = ./theme.rasi;
     };
     hyprland.settings.bindr = [

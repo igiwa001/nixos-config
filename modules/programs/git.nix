@@ -39,11 +39,12 @@ in {
         enable = true;
         lfs.enable = true;
         package = pkgs.gitFull;
-        userName = cfg.name;
-        userEmail = cfg.email;
-        extraConfig = {
+        settings = {
           credential.helper = "libsecret";
           init.defaultBranch = "main";
+          user = {
+            inherit (cfg) name email;
+          };
         };
       };
       lazygit.enable = cfg.lazygit;

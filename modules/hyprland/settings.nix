@@ -34,11 +34,10 @@ in {
       };
     };
 
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_fingers = 3;
-      workspace_swipe_min_fingers = true;
-    };
+    gesture = [
+      "3, horizontal, workspace"
+      "4, horizontal, workspace"
+    ];
 
     misc = {
       disable_hyprland_logo = cfg.hyprpaper.enable;
