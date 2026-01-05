@@ -48,7 +48,10 @@ in {
         };
       };
       lazygit.enable = cfg.lazygit;
-      gh.enable = cfg.gh-cli;
+      gh = lib.mkIf cfg.gh-cli {
+        enable = true;
+        gitCredentialHelper.enable = false;
+      };
     };
 
     home.shellAliases.lgit = lib.mkIf cfg.lazygit "lazygit";
