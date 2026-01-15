@@ -18,6 +18,7 @@
     ./btop.nix
     ./podman.nix
     ./minecraft.nix
+    ./teams.nix
   ];
 
   settings.home-manager.home.packages = [
