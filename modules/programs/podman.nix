@@ -16,10 +16,10 @@ in {
       podman = {
         enable = true;
         dockerCompat = true;
+        dockerSocket.enable = true;
         defaultNetwork.settings.dns_enabled = true;
       };
     };
     settings.user.groups = ["podman"];
-    environment.sessionVariables.DOCKER_HOST = "unix:///run/podman/podman.sock";
   };
 }
