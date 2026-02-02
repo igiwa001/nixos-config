@@ -12,5 +12,6 @@ in
       "desc:AOC 2470W GGJL1HA182550, highres, auto-up, auto"
       "desc:AOC Q27V5C 18DQ1HA025220, preferred, auto-up, 1.25"
       "desc:Samsung Electric Company C27R50x H4CRB03181L, preferred, auto-up, auto"
+      "desc:Samsung Electric Company SAMSUNG H1AK500000, preferred, auto-up, 2"
     ];
   }
