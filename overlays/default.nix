@@ -20,7 +20,4 @@ let
   importOverlays = imports: collectOverlays {inherit imports;};
 in
   importOverlays
-  [
-    ./notwaita-cursor.nix
-    ./oz-nvim.nix
-  ]
+  [./notwaita-cursor.nix]
