@@ -12,7 +12,7 @@ in {
     };
 
     loader = lib.mkOption {
-      type = lib.types.enum ["grub" "systemd"];
+      type = lib.types.enum ["grub" "systemd" "generic"];
       default = "systemd";
     };
 
@@ -43,14 +43,18 @@ in {
 
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = lib.mkIf (cfg.loader == "systemd") {
-        enable = true;
+      systemd-boot = {
+        enable = cfg.loader == "systemd";
         editor = false;
         inherit (cfg) configurationLimit;
       };
-      grub = lib.mkIf (cfg.loader == "grub") {
-        enable = true;
+      grub = {
+        enable = cfg.loader == "grub";
         inherit (cfg.grub) device;
+        inherit (cfg) configurationLimit;
+      };
+      generic-extlinux-compatible = {
+        enable = cfg.loader == "generic";
         inherit (cfg) configurationLimit;
       };
     };
