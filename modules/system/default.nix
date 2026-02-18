@@ -31,7 +31,15 @@ in {
 
     settings.home-manager.programs.bash = {
       enable = true;
-      initExtra = "[[ -f ~/.profile ]] && . ~/.profile";
+      initExtra = ''
+        [[ -f ~/.profile ]] && . ~/.profile
+
+        function keyring-unlock() {
+          read -rsp "Password: " pass
+          export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock)
+          unset pass
+        }
+      '';
     };
 
     services.gnome.gnome-keyring.enable = true;
