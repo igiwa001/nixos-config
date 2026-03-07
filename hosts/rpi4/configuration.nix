@@ -30,6 +30,7 @@ in {
       spotify.enable = false;
       steam.enable = false;
       teams.enable = false;
+      bottles.enable = false;
     };
   };
 }

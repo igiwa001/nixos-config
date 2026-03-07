@@ -33,6 +33,7 @@ in {
       slack.enable = false;
       spotify.enable = false;
       steam.enable = false;
+      bottles.enable = false;
     };
   };
 }

@@ -19,6 +19,7 @@
     ./podman.nix
     ./minecraft.nix
     ./teams.nix
+    ./bottles.nix
   ];
 
   settings.home-manager.home.packages = [
