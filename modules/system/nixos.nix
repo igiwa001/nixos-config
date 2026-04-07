@@ -62,7 +62,7 @@ in {
           type = "github";
           owner = "igiwa001";
           repo = "nixos-config";
-          ref = "57ec102c1478a86c90ed8f93775798d9b3fdebf3";
+          ref = "bde66c15fd3dbedf7c763d8eb1c5347319cf0bfb";
         };
       };
     };
