@@ -48,6 +48,7 @@ in {
       };
 
       settings = {
+        trusted-users = ["@wheel"];
         experimental-features = ["flakes" "nix-command"];
         auto-optimise-store = cfg.optimise;
         max-jobs = cfg.cores;
