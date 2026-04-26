@@ -20,4 +20,7 @@ let
   importOverlays = imports: collectOverlays {inherit imports;};
 in
   importOverlays
-  [./notwaita-cursor.nix]
+  [
+    ./notwaita-cursor.nix
+    ./teamspeak6-server.nix
+  ]
