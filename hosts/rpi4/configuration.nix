@@ -38,7 +38,6 @@ in {
     bootloader.loader = "generic";
 
     services.sshd.enable = true;
-    services.mosquitto.enable = true;
 
     hyprland.enable = false;
     programs = {
