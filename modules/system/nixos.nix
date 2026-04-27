@@ -29,8 +29,7 @@ in {
   };
 
   config = {
-    # Higher priority than nixpkgs default, but lower than `lib.mkDefault`.
-    boot.kernelPackages = lib.mkOverride 1250 pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     nix = {
       channel.enable = false;

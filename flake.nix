@@ -50,10 +50,6 @@
         specialArgs = {inherit inputs my-lib;};
         modules = sharedModules ++ [./hosts/server/configuration.nix];
       };
-      rpi4 = lib.nixosSystem {
-        specialArgs = {inherit inputs my-lib;};
-        modules = sharedModules ++ [./hosts/rpi4/configuration.nix];
-      };
     };
 
     # Nixpkgs instance
