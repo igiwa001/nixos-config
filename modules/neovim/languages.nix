@@ -56,6 +56,11 @@ in {
       type = lib.types.bool;
       default = true;
     };
+
+    terraform = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
@@ -72,6 +77,7 @@ in {
     python.enable = lib.mkIf lang.python true;
     css.enable = lib.mkIf lang.css true;
     ts.enable = lib.mkIf lang.typescript true;
+    terraform.enable = lib.mkIf lang.terraform true;
 
     clang = lib.mkIf lang.c {
       enable = true;
