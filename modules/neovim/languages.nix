@@ -63,30 +63,33 @@ in {
     };
   };
 
-  config.programs.nvf.settings.vim.languages = lib.mkIf cfg.enable {
-    enableDAP = lib.mkIf cfg.lsp.enable true;
-    enableFormat = lib.mkIf cfg.conform.enable true;
-    enableTreesitter = lib.mkIf cfg.treesitter.enable true;
-    enableExtraDiagnostics = lib.mkIf cfg.diagnostics.enable true;
+  config.programs.nvf.settings.vim = {
+    languages = lib.mkIf cfg.enable {
+      enableDAP = lib.mkIf cfg.lsp.enable true;
+      enableFormat = lib.mkIf cfg.conform.enable true;
+      enableTreesitter = lib.mkIf cfg.treesitter.enable true;
+      enableExtraDiagnostics = lib.mkIf cfg.diagnostics.enable true;
 
-    nix.enable = lib.mkIf lang.nix true;
-    lua.enable = lib.mkIf lang.lua true;
-    html.enable = lib.mkIf lang.html true;
-    tailwind.enable = lib.mkIf lang.tailwind true;
-    scala.enable = lib.mkIf lang.scala true;
-    python.enable = lib.mkIf lang.python true;
-    css.enable = lib.mkIf lang.css true;
-    ts.enable = lib.mkIf lang.typescript true;
-    terraform.enable = lib.mkIf lang.terraform true;
+      nix.enable = lib.mkIf lang.nix true;
+      lua.enable = lib.mkIf lang.lua true;
+      html.enable = lib.mkIf lang.html true;
+      scala.enable = lib.mkIf lang.scala true;
+      python.enable = lib.mkIf lang.python true;
+      css.enable = lib.mkIf lang.css true;
+      typescript.enable = lib.mkIf lang.typescript true;
+      terraform.enable = lib.mkIf lang.terraform true;
 
-    clang = lib.mkIf lang.c {
-      enable = true;
-      cHeader = true;
+      clang = lib.mkIf lang.c {
+        enable = true;
+        cHeader = true;
+      };
+
+      markdown = lib.mkIf lang.markdown {
+        enable = true;
+        extensions.markview-nvim.enable = true;
+      };
     };
 
-    markdown = lib.mkIf lang.markdown {
-      enable = true;
-      extensions.markview-nvim.enable = true;
-    };
+    lsp.presets.tailwindcss-language-server.enable = lib.mkIf lang.tailwind true;
   };
 }
