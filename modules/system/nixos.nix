@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   config,
   pkgs,
@@ -59,10 +60,8 @@ in {
           id = "pkgs";
         };
         to = {
-          type = "github";
-          owner = "igiwa001";
-          repo = "nixos-config";
-          ref = "c9ab5d7ee849c664d0f41f2cf0de1d4bd0615b5e";
+          type = "path";
+          path = self.outPath;
         };
       };
     };

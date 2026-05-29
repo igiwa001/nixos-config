@@ -27,6 +27,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nix-minecraft,
     ...
@@ -39,15 +40,15 @@
     # NixOS configuration
     nixosConfigurations = {
       thinkpad = lib.nixosSystem {
-        specialArgs = {inherit inputs my-lib;};
+        specialArgs = {inherit self inputs my-lib;};
         modules = sharedModules ++ [./hosts/thinkpad/configuration.nix];
       };
       desktop = lib.nixosSystem {
-        specialArgs = {inherit inputs my-lib;};
+        specialArgs = {inherit self inputs my-lib;};
         modules = sharedModules ++ [./hosts/desktop/configuration.nix];
       };
       server = lib.nixosSystem {
-        specialArgs = {inherit inputs my-lib;};
+        specialArgs = {inherit self inputs my-lib;};
         modules = sharedModules ++ [./hosts/server/configuration.nix];
       };
     };
