@@ -5,46 +5,51 @@
   };
   mods = {
     Servux = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/zQhsx8KF/versions/1aOMm00f/servux-fabric-1.21.10-rc1-0.8.1.jar";
-      sha512 = "a78fbdc85d16d433d3e573ca72f35fe99d8cc3c952406d9e7e25a30431e1026ecbbd11f9a507b2515668790881e354e346a48601073cc93398eceb285eb4dfd9";
+      url = "https://cdn.modrinth.com/data/zQhsx8KF/versions/eu63Kj9A/servux-fabric-26.1.2-0.10.2.jar";
+      sha512 = "78566cebcc5e181c68fc7f78c2f34213d634ae930f82cdfad19dd65ac4e6b24ae6d541a200b069e07e32e90b5c827d1cc1e80809da376bfbabfc8b302f9f256a";
     };
     FerriteCore = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
-      sha512 = "131b82d1d366f0966435bfcb38c362d604d68ecf30c106d31a6261bfc868ca3a82425bb3faebaa2e5ea17d8eed5c92843810eb2df4790f2f8b1e6c1bdc9b7745";
+      url = "https://cdn.modrinth.com/data/uXXizFIs/versions/d5ddUdiB/ferritecore-9.0.0-fabric.jar";
+      sha512 = "d81fa97e11784c19d42f89c2f433831d007603dd7193cee45fa177e4a6a9c52b384b198586e04a0f7f63cd996fed713322578bde9a8db57e1188854ae5cbe584";
     };
     Krypton = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/O9LmWYR7/krypton-0.2.10.jar";
-      sha512 = "4dcd7228d1890ddfc78c99ff284b45f9cf40aae77ef6359308e26d06fa0d938365255696af4cc12d524c46c4886cdcd19268c165a2bf0a2835202fe857da5cab";
+      url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/kYAGItyj/krypton-0.3.0.jar";
+      sha512 = "14233210283a76f3cf435a3b8ddbcbd65a858d2b1a10b88ff643c0a01486dfd2bf1843bd3456cd4fb86cbb3b06f2dea0c4e663b1976a48e96de16d3b5a707ec9";
     };
     Lithium = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/L1sSIxFm/lithium-fabric-0.19.2%2Bmc1.21.9.jar";
-      sha512 = "ecbebb18f82e589c1d24056b6cfe6a923acb8fea5dd038ed931568db7dc8dad1cfe4b42f9c0f7752ba45f39d4f0cab219deb61fcb54bcc7252c9fe34afc2549a";
+      url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/GiCfpS6V/lithium-fabric-0.24.5%2Bmc26.1.2.jar";
+      sha512 = "5c31bd352d904d76be3b97d23d2d48580c7f9116c73fd3e435db5a780162e229e23f2c7e987ee37d7f65ca666cf7f812162627bd2e916ecb09d95803f582ad37";
     };
     ScalableLux = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PV9KcrYQ/ScalableLux-0.1.6%2Bfabric.c25518a-all.jar";
-      sha512 = "729515c1e75cf8d9cd704f12b3487ddb9664cf9928e7b85b12289c8fbbc7ed82d0211e1851375cbd5b385820b4fedbc3f617038fff5e30b302047b0937042ae7";
+      url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/gYbHVCz8/ScalableLux-0.2.0%2Bfabric.2b63825-all.jar";
+      sha512 = "48565a4d8a1cbd623f0044086d971f2c0cf1c40e1d0b6636a61d41512f4c1c1ddff35879d9dba24b088a670ee254e2d5842d13a30b6d76df23706fa94ea4a58b";
     };
     VMP = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/wnEe9KBa/versions/ppncuwIK/vmp-fabric-mc1.21.10-0.2.0%2Bbeta.7.215-all.jar";
-      sha512 = "4c8026c7a2ee1cfd6b4113565543f87874e5da755640123561371f7ef0bf8d86e0ea4aadd5f96ee527b3903db5b3f01c00cb8052f72e802cee2dd4f32830df59";
+      url = "https://cdn.modrinth.com/data/wnEe9KBa/versions/9f7J0dAp/vmp-fabric-mc26.1.2-0.2.0%2Bbeta.7.234-all.jar";
+      sha512 = "24a0df2407893b1cfb55e27dc1c1fef008df53518d118aa3245924d37b642a27d7b6afde950fbf5d07c4111c44ac264d9ae56b8d8c6a9b55acdfb91ba0a15f16";
     };
     FabricAPI = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/iHrvVvaM/fabric-api-0.134.0%2B1.21.9.jar";
-      sha512 = "6f2c8d7aa311b90af2d80a4a9de18f22e3a19ebe22cf115278eabd3d397725bc706e98827c9eed20f9d751d4701e1da1cdf7258b90f77e65148a7a0133a1e336";
+      url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/yALY9gHM/fabric-api-0.151.0%2B26.1.2.jar";
+      sha512 = "d087349842b962414ba89248f9ef7bc75f537848f4d783435de633ddae8924cd50fd9bffc606aae0f1c2c3ed9b4339623244e1fd34c6b9c17f977528d1303cdd";
     };
     Axiom = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/N6n5dqoA/versions/TibxxJrx/Axiom-5.1.1-for-MC1.21.10.jar";
-      sha512 = "7175d1c7ef4f5764a070e8d46076fc24d9005469a096d0a21a04ea45f96d7d47a3a1309a9627af3ef73b7584c1bbc56bc584a196914ba684762e4970609d65c0";
+      url = "https://cdn.modrinth.com/data/N6n5dqoA/versions/AfA2Emww/Axiom-5.4.2-for-MC26.1.jar";
+      sha512 = "dac0681e5b377a8824153249559849eafb3a1e085b07c4586f10f3dd146a3aae935b998faef11c0bad1fbfb9e21d950ee21992af53790296bad8e7cc20b78a59";
     };
     Carpet = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/TQTTVgYE/versions/jcWK0Ziq/fabric-carpet-1.21.9-1.4.185%2Bv250930.jar";
-      sha512 = "7130f2b2ee8fda2c012f188191a7d05d9671497d442b57955aeeaaed2d1b14500aa19da0a7bf0d2ba0cc357f8dbef8a9084c4197f829b05c0e239a93ac8fc621";
+      url = "https://github.com/gnembon/fabric-carpet/releases/download/v26.1/fabric-carpet-26.1+v260402.jar";
+      sha256 = "sha256:59bd225d12423a7d7a635ca0c94fa786f97ccebb116922b16d76072da4ee67e7";
     };
     CarpetTIS = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/jE0SjGuf/versions/Kr6P8gVe/carpet-tis-addition-v1.71.1-mc1.21.10.jar";
-      sha512 = "ca7abdee0d25ba542c8b1c66eb02f528ad66c65917f808c10d07eef7a493e0ee4ee1d5ea879d3a40a6e78036b0f97edaa9eb7c23eaf252d4dda01e919944500d";
+      url = "https://cdn.modrinth.com/data/jE0SjGuf/versions/gz6hRTtt/carpet-tis-addition-v1.80.0-mc26.1.2.jar";
+      sha512 = "73c2189785667c78f52dc0d20f7a9915c8aa92eddfcd5dd9af7a5ec78b9a478cd331729949d71ca5529c10ae2b429535af4e021a88cf38eaab88cf11bb942143";
     };
   };
+
+  # See: https://github.com/Infinidoge/nix-minecraft/issues/211
+  minecraft-fabric-26_1_2 =
+    pkgs.minecraftServers.fabric-26_1_2.override
+    {jre_headless = pkgs.openjdk25_headless;};
 in {
   settings.services.minecraft = {
     enable = true;
@@ -52,7 +57,7 @@ in {
       survival = {
         enable = true;
         autoStart = true;
-        package = pkgs.minecraftServers.fabric-1_21_9;
+        package = minecraft-fabric-26_1_2;
         jvmOpts = "-Xms1G -Xmx2G";
         operators = players;
         whitelist = players;
@@ -73,7 +78,7 @@ in {
       creative = {
         enable = true;
         autoStart = true;
-        package = pkgs.minecraftServers.fabric-1_21_9;
+        package = minecraft-fabric-26_1_2;
         jvmOpts = "-Xms1G -Xmx2G";
         operators = players;
         whitelist = players;
