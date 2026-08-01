@@ -25,6 +25,7 @@ in {
     programs.minecraft.enable = true;
     services.minecraft.enable = true;
     programs.lact.enable = true;
+    services.factorio.enable = true;
   };
   boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
   boot.extraModprobeConfig = ''

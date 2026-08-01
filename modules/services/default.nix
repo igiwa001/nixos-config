@@ -5,5 +5,6 @@ _: {
     ./sshd.nix
     ./fail2ban.nix
     ./teamspeak6.nix
+    ./factorio.nix
   ];
 }
