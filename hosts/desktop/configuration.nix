@@ -21,7 +21,6 @@ in {
     networking.hostname = "desktop";
     nixos.cores = 24;
     hardware.wooting.enable = true;
-    hardware.razer-nari.enable = true;
     programs.minecraft.enable = true;
     services.minecraft.enable = true;
     programs.lact.enable = true;
