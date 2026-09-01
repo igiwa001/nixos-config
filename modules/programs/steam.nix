@@ -43,19 +43,26 @@ in {
     };
   };
 
-  config.programs.steam = lib.mkIf cfg.enable {
-    enable = true;
-    extest.enable = true;
+  config = lib.mkIf cfg.enable {
+    boot.kernelModules = ["ntsync"];
+    programs.steam = {
+      enable = true;
+      extest.enable = true;
 
-    protontricks.enable = cfg.protontricks;
-    remotePlay.openFirewall = cfg.remotePlay;
-    dedicatedServer.openFirewall = cfg.dedicatedServer;
-    localNetworkGameTransfers.openFirewall = cfg.localNetworkGameTransfers;
+      protontricks.enable = cfg.protontricks;
+      remotePlay.openFirewall = cfg.remotePlay;
+      dedicatedServer.openFirewall = cfg.dedicatedServer;
+      localNetworkGameTransfers.openFirewall = cfg.localNetworkGameTransfers;
 
-    extraCompatPackages = lib.mkIf cfg.protonGE [pkgs.proton-ge-bin];
-    package = lib.mkIf cfg.mangohud (pkgs.steam.override {
-      extraEnv.MANGOHUD = true;
-      extraPkgs = pkgs: [pkgs.mangohud];
-    });
+      extraCompatPackages = lib.mkIf cfg.protonGE [pkgs.proton-ge-bin];
+      package = lib.mkIf cfg.mangohud (pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = true;
+          PROTON_USE_NTSYNC = true;
+          PROTON_ENABLE_WAYLAND = true;
+        };
+        extraPkgs = pkgs: [pkgs.mangohud];
+      });
+    };
   };
 }
