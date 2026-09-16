@@ -1,18 +1,27 @@
 {
-  description = "NixOS configuration";
-
   inputs = {
+    # NixOS
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-
-    # NixOS-hardware
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Home-manager
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Dendritic
+    den.url = "github:denful/den";
+    import-tree.url = "github:vic/import-tree";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    # Wrappers
+    wrappers = {
+      url = "github:nix-community/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,37 +39,14 @@
   };
 
   outputs = {
-    self,
-    nixpkgs,
-    nix-minecraft,
+    flake-parts,
+    import-tree,
     ...
-  } @ inputs: let
-    inherit (nixpkgs) lib;
-    my-lib = import ./lib {inherit lib;};
-    overlays = (import ./overlays) ++ [nix-minecraft.overlay];
-    sharedModules = [./modules {nixpkgs.overlays = overlays;}];
-  in {
-    # NixOS configuration
-    nixosConfigurations = {
-      thinkpad = lib.nixosSystem {
-        specialArgs = {inherit self inputs my-lib;};
-        modules = sharedModules ++ [./hosts/thinkpad/configuration.nix];
-      };
-      desktop = lib.nixosSystem {
-        specialArgs = {inherit self inputs my-lib;};
-        modules = sharedModules ++ [./hosts/desktop/configuration.nix];
-      };
-      server = lib.nixosSystem {
-        specialArgs = {inherit self inputs my-lib;};
-        modules = sharedModules ++ [./hosts/server/configuration.nix];
-      };
-    };
-
-    # Nixpkgs instance
-    legacyPackages = my-lib.forAllSystems (system:
-      import nixpkgs {
-        inherit system overlays;
-        config.allowUnfree = true;
-      });
-  };
+  } @ inputs:
+    flake-parts.lib.mkFlake
+    {
+      inherit inputs;
+      specialArgs = {inherit inputs;};
+    }
+    (import-tree ./modules);
 }
