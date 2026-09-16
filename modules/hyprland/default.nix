@@ -74,6 +74,7 @@ in {
       inherit (cfg) settings;
       package = null;
       portalPackage = null;
+      configType = "hyprlang";
     };
   };
 }

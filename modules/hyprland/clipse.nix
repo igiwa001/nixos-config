@@ -16,10 +16,7 @@ in {
     settings = {
       hyprland.settings = {
         exec-once = ["clipse --listen"];
-        windowrulev2 = [
-          "float, class:(clipse)"
-          "size 622 652, class:(clipse)"
-        ];
+        windowrule = ["match:class clipse, float on, size 622 652"];
         bind = ["SUPER, V, exec, kill $(pidof clipse) || ${defaults.terminal} --class clipse -e clipse"];
       };
       home-manager.home.packages = [pkgs.clipse];

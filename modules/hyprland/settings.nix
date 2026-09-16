@@ -66,10 +66,6 @@ in {
       no_donation_nag = true;
     };
 
-    experimental = {
-      xx_color_management_v4 = true;
-    };
-
     animation = [
       "global, 1, 3, default"
     ];

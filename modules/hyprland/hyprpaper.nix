@@ -14,8 +14,13 @@ in {
   config.settings.home-manager.services.hyprpaper = lib.mkIf cfg.enable {
     enable = true;
     settings = {
-      preload = [wallpaper];
-      wallpaper = [",${wallpaper}"];
+      splash = false;
+      wallpaper = [
+        {
+          monitor = "";
+          path = wallpaper;
+        }
+      ];
     };
   };
 }
