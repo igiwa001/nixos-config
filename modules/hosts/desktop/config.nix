@@ -15,7 +15,7 @@ in {
 
   den.aspects.desktop.nixos = {
     imports = [
-      ./_hardware-configuration.nix
+      ./_hardware.nix
       "${self.outPath}/legacy/hosts/desktop/minecraft-server.nix" # Legacy
       common-pc
       common-pc-ssd

@@ -5,7 +5,7 @@ in {
 
   den.aspects.thinkpad.nixos = {
     imports = [
-      ./_hardware-configuration.nix
+      ./_hardware.nix
       lenovo-thinkpad-e14-amd
     ];
 

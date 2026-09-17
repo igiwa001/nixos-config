@@ -13,7 +13,7 @@ in {
 
   den.aspects.server.nixos = {
     imports = [
-      ./_hardware-configuration.nix
+      ./_hardware.nix
       "${self.outPath}/legacy/hosts/server/fancontrol.nix" # Legacy
       common-pc
       common-cpu-intel-cpu-only
