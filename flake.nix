@@ -39,14 +39,18 @@
   };
 
   outputs = {
+    nixpkgs,
     flake-parts,
     import-tree,
     ...
-  } @ inputs:
-    flake-parts.lib.mkFlake
-    {
+  } @ inputs: let
+    lib' =
+      (import ./lib).evalModules
+      {inherit (nixpkgs) lib;}
+      (import-tree.leaves ./lib);
+  in
+    flake-parts.lib.mkFlake {
       inherit inputs;
-      specialArgs = {inherit inputs;};
-    }
-    (import-tree ./modules);
+      specialArgs = {inherit lib';};
+    } (import-tree ./modules);
 }
