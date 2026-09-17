@@ -8,10 +8,14 @@
     inputs.wrappers.flakeModules.wrappers
   ];
 
-  den.default.includes = [
-    den.batteries.self'
-    den.batteries.inputs'
-    den.batteries.host-aspects
-    den.batteries.hostname
-  ];
+  den.default.includes =
+    (with den.batteries; [
+      self'
+      inputs'
+      host-aspects
+      hostname
+    ])
+    ++ (with den.aspects; [
+      system.bluetooth
+    ]);
 }
