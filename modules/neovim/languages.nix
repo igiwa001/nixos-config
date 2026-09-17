@@ -61,6 +61,11 @@ in {
       type = lib.types.bool;
       default = true;
     };
+
+    json = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.programs.nvf.settings.vim = {
@@ -76,8 +81,18 @@ in {
       scala.enable = lib.mkIf lang.scala true;
       python.enable = lib.mkIf lang.python true;
       css.enable = lib.mkIf lang.css true;
-      typescript.enable = lib.mkIf lang.typescript true;
       terraform.enable = lib.mkIf lang.terraform true;
+
+      json = lib.mkIf lang.json {
+        enable = true;
+        format.type = ["prettier"];
+      };
+
+      tsx.enable = lib.mkIf lang.typescript true;
+      typescript = lib.mkIf lang.typescript {
+        enable = true;
+        extensions.ts-error-translator.enable = true;
+      };
 
       clang = lib.mkIf lang.c {
         enable = true;

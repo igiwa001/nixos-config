@@ -11,12 +11,7 @@ in {
   };
 
   config.programs.nvf.settings.vim = lib.mkIf cfg.enable {
-    formatter.conform-nvim = {
-      enable = true;
-      setupOpts.formatters_by_ft = {
-        json = ["prettier"];
-      };
-    };
+    formatter.conform-nvim.enable = true;
 
     keymaps = [
       {
