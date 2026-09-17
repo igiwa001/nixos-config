@@ -22,7 +22,7 @@ jobs:
       run: nix run .#alejandra -- -c .
 
     - name: Check linting
-      run: nix run .#statix check . -- --ignore hosts/*/hardware-configuration.nix
+      run: nix run .#statix check . -- --ignore "hosts/*/hardware-configuration.nix"
 
     - name: Flake check
       run: nix flake check
