@@ -17,5 +17,6 @@
     ])
     ++ (with den.aspects; [
       system.bluetooth
+      system.home-manager
     ]);
 }

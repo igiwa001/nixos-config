@@ -15,7 +15,6 @@ in {
     ./pipewire.nix
     ./fonts.nix
     ./defaults.nix
-    ./home-manager.nix
     ./theme.nix
     ./cursor.nix
   ];

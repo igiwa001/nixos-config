@@ -10,6 +10,22 @@
   # Overwrite lib.nixosSystem specialArgs
   instantiate = args @ {specialArgs ? {}, ...}:
     lib.nixosSystem (args // {specialArgs = specialArgs // {inherit inputs self my-lib;};});
+
+  legacyModules.nixos = {
+    imports = [../legacy/modules];
+    nixpkgs = {inherit overlays;};
+  };
+
+  homeManagerCompatModule.nixos = {config, ...}: let
+    cfg = config.settings;
+  in {
+    options.settings.home-manager = lib.mkOption {
+      type = my-lib.types.mergeableAnything;
+      default = {};
+    };
+
+    config.home-manager.users.${cfg.user.username} = cfg.home-manager;
+  };
 in {
   den = {
     hosts.x86_64-linux = {
@@ -18,12 +34,8 @@ in {
       server = {inherit instantiate;};
     };
 
-    default.includes = [
-      {
-        nixos.imports = [../legacy/modules];
-        nixos.nixpkgs = {inherit overlays;};
-      }
-    ];
+    default.includes = [legacyModules];
+    schema.host.includes = [homeManagerCompatModule];
   };
 
   perSystem = {system, ...}: {
