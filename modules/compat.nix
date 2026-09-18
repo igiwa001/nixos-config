@@ -28,20 +28,26 @@
 
         user = {
           username = lib.mkOption {
-            description = "Legacy username variable";
+            description = "Re-export legacy username variable";
             type = lib.types.str;
             default = user.userName;
           };
           groups = lib.mkOption {
-            description = "Legacy extra user groups";
+            description = "Collect legacy extra user groups";
             type = lib.types.listOf lib.types.str;
             default = [];
           };
           homeDirectory = lib.mkOption {
-            description = "Legacy home directory variable";
+            description = "Re-export legacy home directory variable";
             type = lib.types.str;
             default = "/home/${user.userName}";
           };
+        };
+
+        locale.keymap = lib.mkOption {
+          description = "Re-export legacy locale/keymap variable";
+          type = lib.types.str;
+          default = config.console.keyMap;
         };
       };
 

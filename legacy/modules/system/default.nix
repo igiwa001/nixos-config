@@ -9,7 +9,6 @@ in {
   imports = [
     ./nixos.nix
     ./networking.nix
-    ./locale.nix
     ./fonts.nix
     ./defaults.nix
     ./theme.nix

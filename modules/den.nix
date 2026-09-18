@@ -19,6 +19,7 @@
       system.bootloader
       system.bluetooth
       system.home-manager
+      system.locale
       system.pipewire
     ]);
 }
