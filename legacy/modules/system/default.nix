@@ -8,7 +8,6 @@
 in {
   imports = [
     ./nixos.nix
-    ./user.nix
     ./networking.nix
     ./locale.nix
     ./pipewire.nix

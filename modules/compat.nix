@@ -11,14 +11,38 @@
   instantiate = args @ {specialArgs ? {}, ...}:
     lib.nixosSystem (args // {specialArgs = specialArgs // {inherit inputs self my-lib;};});
 
-  compatModule = {host, ...}: {
+  compatModule = {
+    host,
+    user,
+    ...
+  }: {
     nixos = {config, ...}: let
       cfg = config.settings;
     in {
-      options.settings.home-manager = lib.mkOption {
-        description = "Legacy home-manager settings aggregator";
-        type = my-lib.types.mergeableAnything;
-        default = {};
+      options.settings = {
+        home-manager = lib.mkOption {
+          description = "Legacy home-manager settings aggregator";
+          type = my-lib.types.mergeableAnything;
+          default = {};
+        };
+
+        user = {
+          username = lib.mkOption {
+            description = "Legacy username variable";
+            type = lib.types.str;
+            default = user.userName;
+          };
+          groups = lib.mkOption {
+            description = "Legacy extra user groups";
+            type = lib.types.listOf lib.types.str;
+            default = [];
+          };
+          homeDirectory = lib.mkOption {
+            description = "Legacy home directory variable";
+            type = lib.types.str;
+            default = "/home/${user.userName}";
+          };
+        };
       };
 
       imports = [
@@ -28,7 +52,8 @@
 
       config = {
         nixpkgs = {inherit overlays;}; # Apply legacy overlays
-        home-manager.users.${cfg.user.username} = cfg.home-manager; # Apply legacy home-manager settings
+        users.users.${user.userName}.extraGroups = cfg.user.groups; # Apply legacy user groups
+        home-manager.users.${user.userName} = cfg.home-manager; # Apply legacy home-manager settings
       };
     };
   };
