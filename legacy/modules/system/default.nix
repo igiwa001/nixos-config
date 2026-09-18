@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.system;
@@ -40,14 +39,5 @@ in {
     security.pam.services.login.enableGnomeKeyring = true;
 
     programs.dconf.enable = true;
-
-    environment.systemPackages = [
-      pkgs.curl
-      pkgs.zip
-      pkgs.unzip
-      pkgs.vim
-      pkgs.screen
-      pkgs.nix-output-monitor
-    ];
   };
 }

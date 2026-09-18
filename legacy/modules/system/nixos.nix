@@ -2,7 +2,6 @@
   self,
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.nixos;
@@ -30,8 +29,6 @@ in {
   };
 
   config = {
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
     nix = {
       channel.enable = false;
 

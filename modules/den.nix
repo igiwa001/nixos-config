@@ -18,6 +18,7 @@
     ++ (with den.aspects; [
       system.bootloader
       system.bluetooth
+      system.common
       system.home-manager
       system.locale
       system.pipewire
