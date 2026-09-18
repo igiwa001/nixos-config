@@ -7,7 +7,6 @@
   cfg = config.settings.system;
 in {
   imports = [
-    ./bootloader.nix
     ./nixos.nix
     ./user.nix
     ./networking.nix

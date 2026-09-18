@@ -1,8 +1,19 @@
-{inputs, ...}: {
+{
+  inputs,
+  den,
+  ...
+}: {
   den.hosts.x86_64-linux.server.users.igorai = {};
 
-  den.aspects.server.nixos = {
-    imports =
+  den.aspects.server = {
+    includes = [
+      (den.aspects.system.bootloader.override {
+        bootlader = "grub";
+        device = "/dev/sda";
+      })
+    ];
+
+    nixos.imports =
       [./_hardware.nix]
       ++ (with inputs.nixos-hardware.nixosModules; [
         common-pc

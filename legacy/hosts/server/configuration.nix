@@ -5,10 +5,6 @@
     system.stateVersion = "25.05";
     networking.hostname = "server";
     nixos.cores = 4;
-    bootloader = {
-      loader = "grub";
-      grub.device = "/dev/sda";
-    };
     services.sshd.enable = true;
 
     hyprland.enable = false;

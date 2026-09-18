@@ -16,6 +16,7 @@
       hostname
     ])
     ++ (with den.aspects; [
+      system.bootloader
       system.bluetooth
       system.home-manager
     ]);
