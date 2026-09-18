@@ -5,37 +5,42 @@
   ...
 }: let
   my-lib = import ../legacy/lib {inherit lib;};
-  overlays = (import ../legacy/overlays) ++ [inputs.nix-minecraft.overlay];
+  overlays = import ../legacy/overlays;
 
   # Overwrite lib.nixosSystem specialArgs
   instantiate = args @ {specialArgs ? {}, ...}:
     lib.nixosSystem (args // {specialArgs = specialArgs // {inherit inputs self my-lib;};});
 
-  legacyModules.nixos = {
-    imports = [../legacy/modules];
-    nixpkgs = {inherit overlays;};
-  };
+  compatModule = {host, ...}: {
+    nixos = {config, ...}: let
+      cfg = config.settings;
+    in {
+      options.settings.home-manager = lib.mkOption {
+        description = "Legacy home-manager settings aggregator";
+        type = my-lib.types.mergeableAnything;
+        default = {};
+      };
 
-  homeManagerCompatModule.nixos = {config, ...}: let
-    cfg = config.settings;
-  in {
-    options.settings.home-manager = lib.mkOption {
-      type = my-lib.types.mergeableAnything;
-      default = {};
+      imports = [
+        "${self.outPath}/legacy/hosts/${host.name}/configuration.nix" # Import legacy configuration.nix
+        "${self.outPath}/legacy/modules" # Import legacy modules
+      ];
+
+      config = {
+        nixpkgs = {inherit overlays;}; # Apply legacy overlays
+        home-manager.users.${cfg.user.username} = cfg.home-manager; # Apply legacy home-manager settings
+      };
     };
-
-    config.home-manager.users.${cfg.user.username} = cfg.home-manager;
   };
 in {
   den = {
+    schema.host.includes = [compatModule];
+
     hosts.x86_64-linux = {
       thinkpad = {inherit instantiate;};
       desktop = {inherit instantiate;};
       server = {inherit instantiate;};
     };
-
-    default.includes = [legacyModules];
-    schema.host.includes = [homeManagerCompatModule];
   };
 
   perSystem = {system, ...}: {

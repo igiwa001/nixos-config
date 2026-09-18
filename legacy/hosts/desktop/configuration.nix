@@ -1,20 +1,5 @@
-{inputs, ...}: let
-  inherit
-    (inputs.nixos-hardware.nixosModules)
-    common-pc
-    common-pc-ssd
-    common-cpu-amd-pstate
-    common-gpu-amd
-    ;
-in {
-  imports = [
-    ./hardware-configuration.nix
-    ./minecraft-server.nix
-    common-pc
-    common-pc-ssd
-    common-cpu-amd-pstate
-    common-gpu-amd
-  ];
+{
+  imports = [./minecraft-server.nix];
 
   settings = {
     system.stateVersion = "24.11";

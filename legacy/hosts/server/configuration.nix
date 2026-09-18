@@ -1,16 +1,5 @@
-{inputs, ...}: let
-  inherit
-    (inputs.nixos-hardware.nixosModules)
-    common-pc
-    common-cpu-intel-cpu-only
-    ;
-in {
-  imports = [
-    ./hardware-configuration.nix
-    ./fancontrol.nix
-    common-pc
-    common-cpu-intel-cpu-only
-  ];
+{
+  imports = [./fancontrol.nix];
 
   settings = {
     system.stateVersion = "25.05";
