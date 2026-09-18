@@ -10,7 +10,6 @@ in {
     ./nixos.nix
     ./networking.nix
     ./locale.nix
-    ./pipewire.nix
     ./fonts.nix
     ./defaults.nix
     ./theme.nix
