@@ -6,5 +6,6 @@ _: {
     ./fail2ban.nix
     ./teamspeak6.nix
     ./factorio.nix
+    ./easyeffects.nix
   ];
 }
