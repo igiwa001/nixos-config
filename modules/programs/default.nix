@@ -24,6 +24,6 @@
   settings.home-manager.home.packages = [
     pkgs.google-cloud-sdk
     pkgs.pnpm
-    pkgs.nodejs_22
+    pkgs.nodejs_24
   ];
 }
