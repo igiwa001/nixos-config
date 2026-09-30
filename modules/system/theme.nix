@@ -9,7 +9,7 @@ let
       Configures the mouse pointer through home-manager.
     '';
 
-    homeManager = {pkgs, ...}: {
+    homeManager = {self', ...}: {
       home.pointerCursor = {
         name = "Notwaita-Black";
         size = 22;
@@ -17,7 +17,7 @@ let
         gtk.enable = true;
         x11.enable = true;
         hyprcursor.enable = true;
-        package = pkgs.notwaita-cursor;
+        package = self'.packages.notwaita-cursor;
       };
     };
   };
