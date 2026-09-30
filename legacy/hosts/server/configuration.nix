@@ -3,7 +3,6 @@
 
   settings = {
     system.stateVersion = "25.05";
-    networking.hostname = "server";
     nixos.cores = 4;
     services.sshd.enable = true;
 

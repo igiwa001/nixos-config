@@ -7,7 +7,6 @@
 in {
   imports = [
     ./nixos.nix
-    ./networking.nix
     ./fonts.nix
     ./defaults.nix
     ./theme.nix

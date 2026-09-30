@@ -21,6 +21,7 @@
       system.common
       system.home-manager
       system.locale
+      system.networking
       system.pipewire
     ]);
 }
