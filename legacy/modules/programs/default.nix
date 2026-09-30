@@ -5,7 +5,6 @@
     ./firefox.nix
     ./discord.nix
     ./spotify.nix
-    ./noisetorch.nix
     ./steam.nix
     ./slack.nix
     ./adb.nix
@@ -25,6 +24,6 @@
   settings.home-manager.home.packages = [
     pkgs.google-cloud-sdk
     pkgs.pnpm
-    pkgs.nodejs_22
+    pkgs.nodejs_24
   ];
 }

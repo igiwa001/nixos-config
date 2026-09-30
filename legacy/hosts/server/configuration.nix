@@ -13,12 +13,12 @@
       firefox.enable = false;
       kitty.enable = false;
       libreoffice.enable = false;
-      noisetorch.enable = false;
       sddm.enable = false;
       slack.enable = false;
       spotify.enable = false;
       steam.enable = false;
       bottles.enable = false;
     };
+    services.easyeffects.enable = false;
   };
 }
