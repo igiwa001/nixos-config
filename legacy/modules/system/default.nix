@@ -6,7 +6,6 @@
   cfg = config.settings.system;
 in {
   imports = [
-    ./nixos.nix
     ./fonts.nix
     ./defaults.nix
     ./theme.nix

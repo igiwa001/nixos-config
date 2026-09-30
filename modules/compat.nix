@@ -60,6 +60,7 @@
         nixpkgs = {inherit overlays;}; # Apply legacy overlays
         users.users.${user.userName}.extraGroups = cfg.user.groups; # Apply legacy user groups
         home-manager.users.${user.userName} = cfg.home-manager; # Apply legacy home-manager settings
+        documentation.nixos.enable = false;
       };
     };
   };
@@ -71,13 +72,6 @@ in {
       thinkpad = {inherit instantiate;};
       desktop = {inherit instantiate;};
       server = {inherit instantiate;};
-    };
-  };
-
-  perSystem = {system, ...}: {
-    legacyPackages = import inputs.nixpkgs {
-      inherit system overlays;
-      config.allowUnfree = true;
     };
   };
 }

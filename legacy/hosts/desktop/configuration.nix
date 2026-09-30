@@ -3,7 +3,6 @@
 
   settings = {
     system.stateVersion = "24.11";
-    nixos.cores = 24;
     hardware.wooting.enable = true;
     programs.minecraft.enable = true;
     services.minecraft.enable = true;

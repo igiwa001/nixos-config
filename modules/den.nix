@@ -22,6 +22,8 @@
       system.home-manager
       system.locale
       system.networking
+      system.nix
+      system.nixpkgs
       system.pipewire
     ]);
 }
