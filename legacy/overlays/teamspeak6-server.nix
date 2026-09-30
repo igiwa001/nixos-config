@@ -1,11 +1,11 @@
 (_: prev: {
   teamspeak6-server = prev.stdenv.mkDerivation (final: {
     pname = "teamspeak6-server";
-    version = "v6.0.0-beta9";
+    version = "v6.0.0-beta13.1";
 
     src = prev.fetchzip {
       url = "https://github.com/teamspeak/teamspeak6-server/releases/download/${final.version}/teamspeak6-server-linux-amd64.tar.xz";
-      hash = "sha256-y71XWMNoY/5D+dErcObBlhSre8aAK+3supZMhxxuenk=";
+      hash = "sha256-paWRJmnBY3dkDh8dNfgBUFvwKmCcKoh6WtlNnXui5YM=";
       stripRoot = false;
     };
 
