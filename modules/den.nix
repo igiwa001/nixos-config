@@ -25,5 +25,6 @@
       system.nix
       system.nixpkgs
       system.pipewire
+      system.theme
     ]);
 }

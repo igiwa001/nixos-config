@@ -9,7 +9,6 @@ in {
     ./fonts.nix
     ./defaults.nix
     ./theme.nix
-    ./cursor.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {
