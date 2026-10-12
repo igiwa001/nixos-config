@@ -1,6 +1,7 @@
 let
   description = ''
-    TODO
+    Configures the theme/style of the system.
+    TODO: Add GTK and QT theme configuration
   '';
 
   cursor = {
@@ -21,12 +22,28 @@ let
       };
     };
   };
+
+  fonts = {
+    name = "theme/fonts";
+    description = ''
+      Configures the system fonts.
+    '';
+
+    nixos = {pkgs, ...}: {
+      fonts = {
+        fontconfig.enable = true;
+        enableDefaultPackages = true;
+        packages = [pkgs.nerd-fonts.fira-mono];
+      };
+    };
+  };
 in {
   den.aspects.system.theme = {
     name = "theme";
     inherit description;
     includes = [
       cursor
+      fonts
     ];
   };
 }

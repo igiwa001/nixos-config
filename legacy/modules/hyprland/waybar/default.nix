@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.hyprland.waybar;
@@ -20,7 +19,6 @@ in {
       style = ./style.css;
     };
 
-    fonts.packages = [pkgs.nerd-fonts.fira-mono];
     hyprland.settings.bind = [
       "SUPER, W, exec, systemctl --user $(if systemctl --user is-active --quiet waybar; then echo stop; else echo start; fi) waybar"
     ];

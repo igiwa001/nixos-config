@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.hyprland.rofi;
@@ -19,6 +18,5 @@ in {
     hyprland.settings.bindr = [
       "SUPER, Super_L, exec, kill $(pidof rofi) || rofi -show drun"
     ];
-    fonts.packages = [pkgs.nerd-fonts.fira-mono];
   };
 }

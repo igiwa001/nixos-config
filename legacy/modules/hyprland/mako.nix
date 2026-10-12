@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.settings.hyprland.mako;
@@ -28,30 +27,26 @@ in {
     };
   };
 
-  config.settings = lib.mkIf cfg.enable {
-    home-manager.services.mako = {
-      enable = true;
-      settings = {
-        inherit
-          (cfg)
-          max-history
-          max-visible
-          default-timeout
-          ;
+  config.settings.home-manager.services.mako = lib.mkIf cfg.enable {
+    enable = true;
+    settings = {
+      inherit
+        (cfg)
+        max-history
+        max-visible
+        default-timeout
+        ;
 
-        font = "FiraMono Nerd Font 11";
-        background-color = "#24273acc";
-        text-color = "#cad3f5";
-        border-color = "#494d64";
-        border-radius = 8;
-        icon-border-radius = 6;
-        padding = "8,0";
-        margin = 4;
-        layer = "overlay";
-        anchor = "top-center";
-      };
+      font = "FiraMono Nerd Font 11";
+      background-color = "#24273acc";
+      text-color = "#cad3f5";
+      border-color = "#494d64";
+      border-radius = 8;
+      icon-border-radius = 6;
+      padding = "8,0";
+      margin = 4;
+      layer = "overlay";
+      anchor = "top-center";
     };
-
-    fonts.packages = [pkgs.nerd-fonts.fira-mono];
   };
 }

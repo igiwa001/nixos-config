@@ -6,7 +6,6 @@
   cfg = config.settings.system;
 in {
   imports = [
-    ./fonts.nix
     ./defaults.nix
   ];
 
