@@ -8,7 +8,6 @@ in {
   imports = [
     ./fonts.nix
     ./defaults.nix
-    ./theme.nix
   ];
 
   options.settings.system.stateVersion = lib.mkOption {
@@ -34,7 +33,5 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.login.enableGnomeKeyring = true;
-
-    programs.dconf.enable = true;
   };
 }
