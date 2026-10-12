@@ -17,7 +17,6 @@ in {
     ./fonts.nix
     ./defaults.nix
     ./home-manager.nix
-    ./theme.nix
     ./cursor.nix
   ];
 
@@ -44,8 +43,6 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.login.enableGnomeKeyring = true;
-
-    programs.dconf.enable = true;
 
     environment.systemPackages = [
       pkgs.curl
