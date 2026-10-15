@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.settings.neovim;
@@ -66,6 +67,11 @@ in {
       type = lib.types.bool;
       default = true;
     };
+
+    rust = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config.programs.nvf.settings.vim = {
@@ -99,6 +105,11 @@ in {
         cHeader = true;
       };
 
+      rust = lib.mkIf lang.rust {
+        enable = true;
+        extensions.crates-nvim.enable = true;
+      };
+
       markdown = lib.mkIf lang.markdown {
         enable = true;
         extensions.markview-nvim.enable = true;
@@ -106,5 +117,11 @@ in {
     };
 
     lsp.presets.tailwindcss-language-server.enable = lib.mkIf lang.tailwind true;
+
+    extraPackages = lib.optionals lang.rust [
+      pkgs.cargo
+      pkgs.rustc
+      pkgs.rustfmt
+    ];
   };
 }
