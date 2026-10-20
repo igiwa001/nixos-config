@@ -44,6 +44,8 @@ in {
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.login.enableGnomeKeyring = true;
 
+    programs.nix-ld.enable = true;
+
     environment.systemPackages = [
       pkgs.curl
       pkgs.zip
